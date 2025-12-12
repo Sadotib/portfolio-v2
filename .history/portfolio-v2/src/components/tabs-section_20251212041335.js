@@ -1,9 +1,0 @@
-export function tabsSection() {
-  document.querySelector('#footer-section').innerHTML = `
-    <div class="grid">
-        <div>
-            <p>© 2024 Bitopan Das</p>
-        </div>
-    </div>
-  `
-}
