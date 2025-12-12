@@ -7,7 +7,7 @@ export function joinWebSocket() {
         
 
         try {
-            const response = await fetch("http://localhost:8080/join", {
+            const response = await fetch("http://13.217.128.142:8080/join", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"

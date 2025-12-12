@@ -2,7 +2,7 @@
 let socket = null;
 export function connectWebSocket() {
 
-    const wsUrl = `ws://localhost:8080/ws/visitors`
+    const wsUrl = `ws://13.217.128.142:8080/ws/visitors`
     console.log("Connecting WebSocket → " + wsUrl)
 
     socket = new WebSocket(wsUrl)
