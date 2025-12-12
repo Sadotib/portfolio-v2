@@ -32,9 +32,3 @@ main
 # OS X generated file
 .DS_Store
 
-
-# Node modules
-node_modules/
-
-#history
-.history/

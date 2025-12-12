@@ -36,5 +36,3 @@ main
 # Node modules
 node_modules/
 
-#history
-.history/
