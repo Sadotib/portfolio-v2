@@ -1,0 +1,129 @@
+package server
+
+import (
+	"log"
+	"net"
+	"net/http"
+	"strings"
+
+	"github.com/gin-gonic/gin"
+	"github.com/gorilla/websocket"
+)
+
+var upgrader = websocket.Upgrader{
+	ReadBufferSize:  1024,
+	WriteBufferSize: 1024,
+	// CheckOrigin: func(r *http.Request) bool {
+	// 	return true // allow all websocket connections
+	// },
+	CheckOrigin: func(r *http.Request) bool {
+		origin := r.Header.Get("Origin")
+		log.Println("WS Origin:", origin)
+		allowedOrigins := map[string]bool{
+			"http://localhost:5173": true,
+			"http://127.0.0.1:5173": true,
+		}
+
+		return allowedOrigins[origin]
+	},
+}
+
+func (s *Server) WebSocketHandler(c *gin.Context) {
+
+	conn, err := upgrader.Upgrade(c.Writer, c.Request, nil)
+	if err != nil {
+		log.Println("ws upgrade error:", err)
+		return
+	}
+
+	clientIP := getClientIP(c.Request)
+	log.Println("New WS client connected:", clientIP)
+	geo := LookupGeoInfo(clientIP) // we'll implement this below
+
+	client := &Client{
+		Conn: conn,
+		IP:   clientIP,
+		Geo:  geo,
+	}
+
+	Hub.Mutex.Lock()
+	Hub.Clients[client] = true
+	Hub.Mutex.Unlock()
+
+	M.IncWS() // update metrics
+
+	Hub.BroadcastVisitorInfo()
+
+	for {
+		_, _, err := conn.ReadMessage()
+		if err != nil {
+			break
+		}
+	}
+
+	Hub.Mutex.Lock()
+	delete(Hub.Clients, client)
+	Hub.Mutex.Unlock()
+
+	M.DecWS()
+	Hub.BroadcastVisitorInfo()
+	conn.Close()
+
+}
+
+func (h *WebSocketHub) BroadcastVisitorInfo() {
+	h.Mutex.Lock()
+	defer h.Mutex.Unlock()
+
+	type Visitor struct {
+		IP  string   `json:"ip"`
+		Geo *GeoInfo `json:"geo"`
+	}
+
+	var visitors []Visitor
+
+	for c := range h.Clients {
+		visitors = append(visitors, Visitor{
+			IP:  c.IP,
+			Geo: c.Geo,
+		})
+	}
+
+	for client := range h.Clients {
+		client.Conn.WriteJSON(gin.H{
+			"active":   len(h.Clients),
+			"visitors": visitors,
+		})
+	}
+}
+
+// getClientIP extracts the real client IP address from the request
+// It checks proxy headers first, then falls back to direct connection
+func getClientIP(r *http.Request) string {
+	// Check X-Forwarded-For header (used by proxies, load balancers, CDNs)
+	if xForwardedFor := r.Header.Get("X-Forwarded-For"); xForwardedFor != "" {
+		// X-Forwarded-For can contain multiple IPs, get the first one (original client)
+		ips := strings.Split(xForwardedFor, ",")
+		if ip := strings.TrimSpace(ips[0]); ip != "" {
+			return ip
+		}
+	}
+
+	// Check X-Real-IP header (used by nginx, Apache, etc)
+	if xRealIP := r.Header.Get("X-Real-IP"); xRealIP != "" {
+		if ip := strings.TrimSpace(xRealIP); ip != "" {
+			return ip
+		}
+	}
+
+	// Fall back to direct connection IP
+	if remoteAddr := r.RemoteAddr; remoteAddr != "" {
+		// RemoteAddr is in format "ip:port", extract just the IP
+		if ip, _, err := net.SplitHostPort(remoteAddr); err == nil {
+			return ip
+		}
+		return remoteAddr
+	}
+
+	return "unknown"
+}
