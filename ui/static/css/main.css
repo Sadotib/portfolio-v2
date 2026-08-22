@@ -1,0 +1,1053 @@
+:root {
+    --void: #050508;
+    --body: #1a1d26;
+    --body-hi: #2a2d36;
+    --screen: #0a0e17;
+    --cyan: #00f0ff;
+    --amber: #f0a030;
+    --red: #ff2d55;
+    --green: #00ff88;
+    --white: #e8eaed;
+    --muted: #6b7280;
+    --line: rgba(0, 240, 255, .22);
+    --mono: 'Share Tech Mono', monospace;
+    --display: 'Orbitron', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body.pda-app {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center,
+            #161a22 0,
+            #050508 70%);
+    color: var(--white);
+    font-family: var(--mono);
+    line-height: 1.5;
+}
+
+/* =========================================================
+   PDA DEVICE
+   ========================================================= */
+
+.pda-device {
+    width: calc(100vw - 32px);
+    height: calc(100vh - 32px);
+    margin: 16px auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    filter: drop-shadow(0 20px 36px #000);
+}
+
+/* =========================================================
+   DEVICE TOP / BOTTOM STRIPS
+   ========================================================= */
+
+.device-top-strip,
+.device-bottom-strip {
+    height: 42px;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    background: linear-gradient(180deg,
+            var(--body-hi),
+            var(--body));
+    border: 1px solid #3d424e;
+    color: #7d8490;
+    font: 11px var(--mono);
+    letter-spacing: 1px;
+}
+
+.device-top-strip {
+    border-radius: 18px 18px 0 0;
+    position: relative;
+}
+
+.device-bottom-strip {
+    border-radius: 0 0 18px 18px;
+}
+
+/* =========================================================
+   DEVICE HEADER DETAILS
+   ========================================================= */
+
+.device-mark {
+    font-family: var(--display);
+    color: #adb4c0;
+    font-size: 10px;
+}
+
+.antenna {
+    position: absolute;
+    left: 7%;
+    top: -12px;
+    width: 64px;
+    height: 12px;
+    border: 2px solid #353a45;
+    border-bottom: 0;
+    border-radius: 9px 9px 0 0;
+}
+
+.top-leds,
+.panel-leds {
+    display: flex;
+    gap: 9px;
+}
+
+.top-leds i,
+.panel-leds i,
+.signal-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    animation: blink 2.4s infinite;
+}
+
+.top-leds i:nth-child(2),
+.panel-leds i:nth-child(2) {
+    background: var(--amber);
+    box-shadow: 0 0 8px var(--amber);
+    animation-delay: .6s;
+}
+
+.top-leds i:nth-child(3),
+.panel-leds i:nth-child(3) {
+    background: var(--red);
+    box-shadow: 0 0 8px var(--red);
+    animation-delay: 1.2s;
+}
+
+/* =========================================================
+   MAIN DEVICE FRAME
+   ========================================================= */
+
+.device-frame {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 104px 1fr 104px;
+    background: linear-gradient(115deg,
+            #13161e,
+            #30343d 48%,
+            #171a22);
+    border: 3px solid #090b0f;
+    box-shadow:
+        inset 0 0 0 2px #4b505a,
+        inset 0 0 30px #000;
+}
+
+/* =========================================================
+   SIDE PANELS
+   ========================================================= */
+
+.device-panel {
+    position: relative;
+    padding: 26px 13px;
+    color: #777f8b;
+}
+
+.device-panel-left {
+    border-right: 1px solid #4a4f58;
+}
+
+.device-panel-right {
+    border-left: 1px solid #4a4f58;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+    padding-top: 40px;
+}
+
+/* =========================================================
+   SCREWS
+   ========================================================= */
+
+.screw {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%,
+            #89909b,
+            #252932 55%,
+            #0d0f14);
+    border: 1px solid #111;
+    box-shadow: 0 1px 2px #000;
+}
+
+.screw:after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 6px;
+    width: 8px;
+    border-top: 1px solid #111;
+    transform: rotate(35deg);
+}
+
+.screw-a {
+    top: 14px;
+    left: 14px;
+}
+
+.screw-b {
+    top: 14px;
+    right: 14px;
+}
+
+.screw-c {
+    bottom: 14px;
+    left: 14px;
+}
+
+.screw-d {
+    bottom: 14px;
+    left: 14px;
+}
+
+.screw-e {
+    bottom: 14px;
+    right: 14px;
+}
+
+/* =========================================================
+   LEFT PANEL ENGRAVING
+   ========================================================= */
+
+.panel-engraving {
+    margin-top: 130px;
+    text-align: center;
+    font: 700 12px var(--display);
+    line-height: 2;
+    color: #707782;
+    text-shadow: 1px 1px #090a0d;
+}
+
+.panel-engraving small {
+    font: 8px var(--mono);
+}
+
+.panel-leds {
+    position: absolute;
+    bottom: 55px;
+    left: 26px;
+    flex-direction: column;
+}
+
+/* =========================================================
+   AUDIO BUTTON
+   ========================================================= */
+
+.music-toggle {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    border: 2px solid #080a0d;
+    background: radial-gradient(circle at 35% 30%,
+            #4c535e,
+            #171a21 62%);
+    box-shadow:
+        0 4px 0 #090a0d,
+        0 0 0 3px #363b45;
+    color: #b1b7c0;
+    cursor: pointer;
+    font: 9px var(--display);
+}
+
+.music-toggle:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #090a0d;
+}
+
+.music-led {
+    display: block;
+    width: 7px;
+    height: 7px;
+    margin: 4px auto 0;
+    border-radius: 50%;
+    box-shadow: 0 0 7px currentColor;
+}
+
+.led-red {
+    background: var(--red);
+    color: var(--red);
+}
+
+.led-green {
+    background: var(--green);
+    color: var(--green);
+}
+
+/* =========================================================
+   VOLUME WHEEL
+   ========================================================= */
+
+.volume-wheel {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    position: relative;
+    cursor: ns-resize;
+    background: repeating-conic-gradient(#444b55 0 5deg,
+            #20242c 5deg 12deg);
+    border: 5px solid #101218;
+    box-shadow:
+        0 3px 0 #08090c,
+        0 0 0 2px #59606b;
+    color: #9ea6b2;
+    touch-action: none;
+}
+
+.volume-wheel:before {
+    content: '';
+    position: absolute;
+    inset: 9px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            #424954,
+            #1d2129 70%);
+    border: 1px solid #686f7b;
+}
+
+.wheel-notch {
+    position: absolute;
+    z-index: 1;
+    left: 30px;
+    top: 7px;
+    height: 17px;
+    border-left: 3px solid var(--amber);
+}
+
+.wheel-label {
+    position: absolute;
+    z-index: 2;
+    inset: 27px 0 0;
+    text-align: center;
+    font: 9px var(--display);
+}
+
+/* =========================================================
+   PDA SCREEN
+   ========================================================= */
+
+.pda-screen {
+    min-width: 0;
+    min-height: 0;
+    padding: 13px;
+    background: #080b12;
+    box-shadow: inset 0 0 25px #000;
+}
+
+.screen-interface {
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--screen);
+    border: 1px solid #17404a;
+    box-shadow: 0 0 18px rgba(0, 240, 255, .12);
+    position: relative;
+    overflow: hidden;
+}
+
+.screen-interface:after {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(0deg,
+            transparent 0 3px,
+            rgba(0, 240, 255, .035) 4px),
+        radial-gradient(ellipse,
+            transparent 55%,
+            rgba(0, 0, 0, .52));
+    mix-blend-mode: screen;
+}
+
+/* =========================================================
+   SCREEN HEADER
+   ========================================================= */
+
+.screen-header {
+    height: 44px;
+    flex: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 18px;
+    border-bottom: 1px solid var(--line);
+    font: 12px var(--display);
+    letter-spacing: 1px;
+    color: var(--cyan);
+}
+
+.screen-header b {
+    color: #7c8793;
+    font-weight: 500;
+}
+
+.signal-dot {
+    display: inline-block;
+    margin-right: 7px;
+}
+
+.screen-status {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--white);
+}
+
+/* =========================================================
+   SIGNAL BARS
+   ========================================================= */
+
+.signal-bars {
+    display: flex;
+    align-items: end;
+    gap: 2px;
+    height: 13px;
+}
+
+.signal-bars i {
+    width: 3px;
+    background: var(--green);
+    height: 5px;
+}
+
+.signal-bars i:nth-child(2) {
+    height: 8px;
+}
+
+.signal-bars i:nth-child(3) {
+    height: 10px;
+}
+
+.signal-bars i:nth-child(4) {
+    height: 13px;
+}
+
+/* =========================================================
+   BATTERY
+   ========================================================= */
+
+.battery {
+    width: 22px;
+    height: 11px;
+    border: 1px solid var(--green);
+    padding: 2px;
+    position: relative;
+}
+
+.battery:after {
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: 3px;
+    height: 4px;
+    border-right: 2px solid var(--green);
+}
+
+.battery i {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: var(--green);
+}
+
+/* =========================================================
+   SCREEN TABS
+   ========================================================= */
+
+.screen-tabs {
+    display: flex;
+    gap: 5px;
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(0, 240, 255, .12);
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.screen-tab {
+    flex: 1;
+    min-width: 84px;
+    padding: 8px 7px;
+    background: rgba(0, 240, 255, .04);
+    border: 1px solid #24505a;
+    color: #6f9da4;
+    font: 11px var(--display);
+    cursor: pointer;
+    letter-spacing: .7px;
+}
+
+.screen-tab:hover,
+.screen-tab:focus-visible,
+.screen-tab.tab-active {
+    color: var(--screen);
+    background: var(--cyan);
+    box-shadow: 0 0 14px rgba(0, 240, 255, .45);
+    outline: none;
+}
+
+/* =========================================================
+   SCREEN PANELS
+   ========================================================= */
+
+.screen-panels {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 25px 30px;
+    scrollbar-color: var(--cyan) #101721;
+    scrollbar-width: thin;
+}
+
+.screen-panel {
+    animation: panel-in .35s ease;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* =========================================================
+   COMMON TEXT
+   ========================================================= */
+
+.panel-kicker,
+.project-id,
+.data-label,
+.blog-list article>span {
+    color: var(--amber);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.screen-panel h1,
+.screen-panel h2,
+.screen-panel h3 {
+    font-family: var(--display);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.screen-panel h1 {
+    font-size: clamp(32px, 5vw, 58px);
+    line-height: 1;
+    color: var(--cyan);
+    text-shadow: 0 0 20px rgba(0, 240, 255, .4);
+    margin: 18px 0 9px;
+}
+
+.screen-panel h2 {
+    font-size: clamp(20px, 3vw, 30px);
+    margin: 12px 0 24px;
+    color: var(--white);
+}
+
+.screen-panel h3 {
+    font-size: 14px;
+    color: var(--cyan);
+    margin: 7px 0;
+}
+
+.role {
+    color: var(--amber);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.lead {
+    max-width: 570px;
+    color: #c3cbd3;
+    margin: 22px 0;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    gap: 28px;
+    align-items: center;
+}
+
+.ascii-portrait {
+    color: var(--cyan);
+    font: 13px/1.35 var(--mono);
+    text-shadow: 0 0 9px rgba(0, 240, 255, .7);
+    justify-self: center;
+}
+
+/* =========================================================
+   STAT GRID
+   ========================================================= */
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.stat-grid div,
+.data-grid article,
+.project-list article,
+.blog-list article {
+    border: 1px solid #23404a;
+    background: rgba(0, 240, 255, .045);
+    padding: 14px;
+}
+
+.stat-grid b {
+    display: block;
+    color: var(--green);
+    font: 20px var(--display);
+}
+
+.stat-grid span {
+    display: block;
+    color: var(--muted);
+    font-size: 9px;
+    margin-top: 5px;
+}
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.link-row {
+    display: flex;
+    gap: 22px;
+}
+
+.link-row a {
+    color: var(--cyan);
+    font-size: 12px;
+}
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+.timeline {
+    border-left: 1px solid var(--cyan);
+    padding-left: 22px;
+    display: grid;
+    gap: 24px;
+}
+
+.timeline article {
+    position: relative;
+    display: grid;
+    grid-template-columns: 105px 1fr;
+    gap: 15px;
+}
+
+.timeline article:before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 3px;
+    width: 9px;
+    height: 9px;
+    background: var(--amber);
+    box-shadow: 0 0 10px var(--amber);
+}
+
+.timeline-date {
+    color: var(--amber);
+    font-size: 11px;
+}
+
+.timeline p,
+.data-grid p,
+.project-list p,
+.blog-list p,
+.misc-layout p {
+    color: #a7b1bc;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   DATA GRID
+   ========================================================= */
+
+.data-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.data-label {
+    font-size: 10px;
+}
+
+/* =========================================================
+   PROJECTS / BLOG
+   ========================================================= */
+
+.project-list,
+.blog-list {
+    display: grid;
+    gap: 10px;
+}
+
+.project-list article {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.project-tag {
+    align-self: start;
+    color: var(--green);
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.blog-list article>span {
+    color: var(--green);
+}
+
+/* =========================================================
+   MISC
+   ========================================================= */
+
+.misc-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.misc-layout>div {
+    padding: 15px;
+    border-left: 2px solid var(--amber);
+    background: rgba(240, 160, 48, .04);
+}
+
+.easter-egg {
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+}
+
+.easter-egg code {
+    color: var(--red);
+}
+
+/* =========================================================
+   TERMINAL
+   ========================================================= */
+
+.terminal-bar {
+    flex: none;
+    background: #070b10;
+    border-top: 1px solid var(--line);
+    z-index: 2;
+}
+
+.terminal-bar>button {
+    width: 100%;
+    padding: 7px 14px;
+    background: none;
+    border: 0;
+    color: var(--cyan);
+    text-align: left;
+    font: 11px var(--display);
+    cursor: pointer;
+}
+
+.terminal-bar>button span {
+    float: right;
+}
+
+.terminal-output {
+    display: none;
+    max-height: 130px;
+    overflow-y: auto;
+    padding: 8px 14px;
+    color: #a9bbc0;
+    font-size: 12px;
+    white-space: pre-wrap;
+}
+
+.terminal-expanded .terminal-output {
+    display: block;
+}
+
+.terminal-input-row {
+    display: flex;
+    gap: 9px;
+    padding: 9px 14px;
+    color: var(--green);
+    font-size: 12px;
+}
+
+.terminal-input-row input {
+    flex: 1;
+    min-width: 0;
+    background: none;
+    border: 0;
+    outline: 0;
+    color: var(--white);
+    font: inherit;
+}
+
+.terminal-input-row input::placeholder {
+    color: #4b6268;
+}
+
+/* =========================================================
+   UTILITY COLORS
+   ========================================================= */
+
+.text-pda-green {
+    color: var(--green);
+}
+
+.text-pda-cyan {
+    color: var(--cyan);
+}
+
+.text-pda-muted {
+    color: var(--muted);
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes blink {
+    50% {
+        opacity: .35;
+    }
+}
+
+@keyframes panel-in {
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .pda-device {
+        width: calc(100vw - 16px);
+        height: calc(100vh - 16px);
+        margin: 8px auto;
+    }
+
+    .device-top-strip,
+    .device-bottom-strip {
+        height: 30px;
+        padding: 0 10px;
+        font-size: 8px;
+    }
+
+    .device-top-strip {
+        border-radius: 12px 12px 0 0;
+    }
+
+    .device-bottom-strip {
+        border-radius: 0 0 12px 12px;
+    }
+
+    .device-bottom-strip span:nth-child(2) {
+        display: none;
+    }
+
+    .device-frame {
+        grid-template-columns: 42px 1fr 42px;
+    }
+
+    .device-panel {
+        padding: 14px 5px;
+    }
+
+    .panel-engraving {
+        margin-top: 95px;
+        font-size: 7px;
+        writing-mode: vertical-rl;
+        margin-left: 10px;
+    }
+
+    .panel-engraving small {
+        font-size: 6px;
+    }
+
+    .panel-leds {
+        left: 18px;
+        bottom: 38px;
+    }
+
+    .device-panel-right {
+        padding-top: 24px;
+        gap: 18px;
+    }
+
+    .music-toggle {
+        width: 34px;
+        height: 34px;
+        font-size: 6px;
+    }
+
+    .music-led {
+        width: 5px;
+        height: 5px;
+        margin-top: 1px;
+    }
+
+    .volume-wheel {
+        width: 36px;
+        height: 36px;
+        border-width: 3px;
+    }
+
+    .wheel-notch {
+        left: 16px;
+        top: 3px;
+        height: 10px;
+    }
+
+    .wheel-label {
+        inset: 14px 0 0;
+        font-size: 6px;
+    }
+
+    .screw {
+        width: 10px;
+        height: 10px;
+    }
+
+    .screw:after {
+        left: 2px;
+        top: 4px;
+        width: 5px;
+    }
+
+    .screw-a,
+    .screw-b {
+        top: 8px;
+    }
+
+    .screw-c,
+    .screw-d,
+    .screw-e {
+        bottom: 8px;
+    }
+
+    .pda-screen {
+        padding: 6px;
+    }
+
+    .screen-header {
+        height: 37px;
+        padding: 0 9px;
+        font-size: 9px;
+    }
+
+    .screen-status {
+        gap: 7px;
+    }
+
+    .screen-tabs {
+        padding: 6px;
+        gap: 3px;
+    }
+
+    .screen-tab {
+        min-width: 72px;
+        padding: 7px 4px;
+        font-size: 9px;
+    }
+
+    .screen-panels {
+        padding: 17px 14px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ascii-portrait {
+        order: -1;
+        font-size: 10px;
+    }
+
+    .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .timeline article {
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+
+    .data-grid,
+    .misc-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .project-list article {
+        display: block;
+    }
+
+    .project-tag {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .terminal-input-row {
+        padding: 7px 9px;
+        font-size: 11px;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *:before,
+    *:after {
+        animation-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

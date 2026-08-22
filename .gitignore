@@ -1,0 +1,4 @@
+tmp/
+.history/
+.env
+tls/
