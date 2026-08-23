@@ -3,10 +3,10 @@ package pages
 import "portfolio-v2/ui/html"
 
 templ Home() {
-	@html.Base("SADOTIB.IN // PDA-7X") {
+	@html.Base("Bitopan Das") {
 		<div class="screen-interface">
 			<header class="screen-header">
-				<div>PDA-7X</div>
+				<div>Bitopan Das</div>
 				<div class="screen-status">
 					<span id="pda-clock">00:00:00</span>
 					<span class="signal-bars"><i></i><i></i><i></i><i></i></span>
@@ -23,44 +23,168 @@ templ Home() {
 			</nav>
 			<div id="screen-panels" class="screen-panels">
 				<section data-panel="about" class="screen-panel">
-					<div class="panel-kicker">IDENTITY RECORD 001</div>
-					<h1>SADOTIB</h1>
-					<p class="role">SENIOR SOFTWARE ENGINEER</p>
-					<p class="lead">I build robust distributed systems and sharp hypermedia experiences. My work favors clear protocols, resilient services, and interfaces that respond at the speed of thought.</p>
-					<p class="stat-grid">GO / PRIMARY LANGUAGE | 10+ / YEARS BUILDING | 0 / RUNTIME BLOAT | 24/7 / SYSTEM CURIOSITY</p>
+
+					<h1>
+						Bitopan Das
+					</h1>
+
+					<p class="role">
+						SENIOR SOFTWARE ENGINEER
+					</p>
+
+					<p class="lead">
+						I build robust distributed systems and sharp hypermedia
+						experiences. My work favors clear protocols, resilient
+						services, and interfaces that respond at the speed of thought.
+					</p>
+
+					// <p class="stat-grid">
+					// 	GO / PRIMARY LANGUAGE &nbsp; | &nbsp;
+					// 	10+ / YEARS BUILDING &nbsp; | &nbsp;
+					// 	0 / RUNTIME BLOAT &nbsp; | &nbsp;
+					// 	24/7 / SYSTEM CURIOSITY
+					// </p>
+
 				</section>
 				<section data-panel="experience" class="screen-panel hidden">
-					<div class="panel-kicker">SERVICE HISTORY 002</div>
 					<h2>EXPERIENCE LOG</h2>
 					<p>2022 - NOW SYSTEMS ENGINEER  INDEPENDENT<br/>Designing Go services, event pipelines, and operational tooling.</p>
 					<p>2019 - 2022  FULL-STACK ENGINEER  PLATFORM<br/>Built high-throughput APIs and reliable integrations.</p>
 				</section>
 				<section data-panel="education" class="screen-panel hidden">
-					<div class="panel-kicker">KNOWLEDGE ARCHIVE 003</div>
+					
 					<h2>EDUCATION</h2>
 					<p>CORE STUDY  COMPUTER SCIENCE<br/>Algorithms, operating systems, networks, and systems reasoning.</p>
 					<p>FIELD STUDY  DISTRIBUTED SYSTEMS<br/>Consensus, databases, cryptography, Linux internals, and practical software craft.</p>
 				</section>
 				<section data-panel="projects" class="screen-panel hidden">
-					<div class="panel-kicker">ACTIVE PROJECTS 004</div>
+					
 					<h2>SELECTED PROJECTS</h2>
 					<p>01  KRONOS-KV  GO / RAFT<br/>Fault-tolerant replicated key-value storage.</p>
 					<p>02  HYPERPULSE  HTMX / SSE<br/>Real-time event dashboard with server-rendered views.</p>
 					<p>03  AEGIS-GATEWAY  TLS / OIDC<br/>Zero-trust API edge gateway.</p>
 				</section>
 				<section data-panel="blog" class="screen-panel hidden">
-					<div class="panel-kicker">TRANSMISSIONS 005</div>
-					<h2>BLOG SIGNALS</h2>
+					
+					<h2>BLOG</h2>
 					<p>INCOMING  DESIGNING FOR FAILURE WITHOUT DESIGNING FOR FEAR</p>
 					<p>ARCHIVE THE CASE FOR SMALLER WEB MACHINES</p>
 				</section>
 				<section data-panel="misc" class="screen-panel hidden">
-					<div class="panel-kicker">UNCLASSIFIED DATA 006</div>
+					
 					<h2>MISCELLANEOUS</h2>
 					<p>INTERESTS  Mechanical keyboards, speculative fiction, quiet tools, and long walks.</p>
 					<p>FIELD NOTES  Smaller reproductions make better debugging tools.</p>
 					<p class="easter-egg">TRY THE TERMINAL secret</p>
 				</section>
+			</div>
+			<div class="pda-music-player" id="pda-music-player">
+
+				<div class="music-player-header">
+					<span class="music-player-label">AUDIO MODULE</span>
+					<span class="music-player-status" id="music-player-status">STANDBY</span>
+				</div>
+
+				<div class="music-player-display">
+
+					<div class="music-track-info">
+						<span class="music-track-index">01</span>
+
+						<div class="music-track-details">
+							<span class="music-track-title">
+								PDA-7X AMBIENT CHANNEL
+							</span>
+
+							<span class="music-track-subtitle">
+								LOCAL AUDIO // MP3
+							</span>
+						</div>
+					</div>
+
+					<div class="music-visualizer" id="music-visualizer" aria-hidden="true">
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+					</div>
+
+				</div>
+
+				<div class="music-player-controls">
+
+					<button
+						type="button"
+						class="music-player-button"
+						id="music-player-play"
+						aria-label="Play audio"
+						title="Play">
+
+						<span id="music-player-play-icon">▶</span>
+
+					</button>
+
+					<div class="music-player-progress">
+
+						<span id="music-current-time">
+							00:00
+						</span>
+
+						<input
+							id="music-progress"
+							class="music-progress"
+							type="range"
+							min="0"
+							max="100"
+							value="0"
+							step="0.1"
+							aria-label="Audio progress"
+						/>
+
+						<span id="music-duration">
+							00:00
+						</span>
+
+					</div>
+
+					<button
+						type="button"
+						class="music-player-button music-player-volume-button"
+						id="music-player-mute"
+						aria-label="Mute audio"
+						title="Mute">
+
+						<span id="music-player-volume-icon">VOL</span>
+
+					</button>
+
+				</div>
+
+				<div class="music-player-volume">
+
+					<span>VOL</span>
+
+					<input
+						id="music-volume"
+						type="range"
+						min="0"
+						max="1"
+						value="0.5"
+						step="0.01"
+						aria-label="Audio volume"
+					/>
+
+					<span id="music-volume-value">50</span>
+
+				</div>
+
 			</div>
 			<section id="terminal-bar" class="terminal-bar">
 				<button id="terminal-toggle" type="button" aria-label="Expand terminal">
@@ -68,14 +192,14 @@ templ Home() {
 					<span>+</span>
 				</button>
 				<div id="terminal-output" class="terminal-output">
-					<div>
-						<span class="text-pda-green">root@pda:~$</span>
+				 	<div>
+						<span class="text-pda-green">root@pda~$</span>
 						<span class="text-pda-muted">system status</span>
 					</div>
-					<div class="text-pda-cyan">PDA-7X ONLINE  ALL MODULES NOMINAL</div>
+					<div class="text-pda-cyan">healthy</div>
 				</div>
 				<label class="terminal-input-row">
-					<span>root@pda:~$</span>
+					<span class="text-pda-green">root@pda:~$</span>
 					<input id="terminal-input" type="text" autocomplete="off" spellcheck="false" aria-label="Terminal command" placeholder="type --help"/>
 				</label>
 			</section>

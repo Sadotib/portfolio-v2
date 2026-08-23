@@ -1,3 +1,11 @@
+/* =========================================================
+   PDA-7X // PALM-STYLE LCD INTERFACE
+   ========================================================= */
+
+/* =========================================================
+   FONT SYSTEM
+   ========================================================= */
+
 @font-face {
     font-family: 'DS Digital';
     src: url('../fonts/DS-DIGI.TTF') format('truetype');
@@ -8,10 +16,14 @@
 
 :root {
 
+    --void: #050508;
+
     --body: #1a1d26;
     --body-hi: #2a2d36;
+    --body-dark: #101219;
     --body-edge: #3d424e;
 
+    
     --screen: #c9ca93;
     --lcd-light: #d6d6a0;
     --lcd-mid: #b9bd88;
@@ -22,20 +34,27 @@
 
     --lcd-line: rgba(48, 53, 38, .48);
 
+    
     --amber: #f0a030;
     --red: #ff2d55;
     --green: #00ff88;
 
     --white: #e8eaed;
 
+    
     --lcd-font:
         'DS Digital',
         monospace;
 
+    
     --display:
         'Orbitron',
         sans-serif;
 }
+
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -51,11 +70,16 @@ body {
     overflow: hidden;
 }
 
+/* =========================================================
+   BODY
+   ========================================================= */
+
 body.pda-app {
 
     width: 100%;
     height: 100%;
 
+    /* Clean canvas — replace with an image/video later. */
     background: #ffffff;
 
     color: var(--white);
@@ -65,8 +89,13 @@ body.pda-app {
     line-height: 1.5;
 }
 
+/* =========================================================
+   PDA DEVICE
+   ========================================================= */
+
 .pda-device {
 
+    /* Leave visible space around the device for a future background. */
     width:
         min(88vw, 1600px);
 
@@ -90,6 +119,10 @@ body.pda-app {
             0 20px 36px #000
         );
 }
+
+/* =========================================================
+   TOP / BOTTOM HOUSING
+   ========================================================= */
 
 .device-top-strip,
 .device-bottom-strip {
@@ -147,6 +180,10 @@ body.pda-app {
         0 0 18px 18px;
 }
 
+/* =========================================================
+   DEVICE TOP DETAILS
+   ========================================================= */
+
 .device-mark {
 
     font-family:
@@ -188,6 +225,10 @@ body.pda-app {
     border-radius:
         9px 9px 0 0;
 }
+
+/* =========================================================
+   TOP STATUS LEDS
+   ========================================================= */
 
 .top-leds {
 
@@ -243,6 +284,10 @@ body.pda-app {
         1.2s;
 }
 
+/* =========================================================
+   MAIN DEVICE FRAME
+   ========================================================= */
+
 .device-frame {
 
     flex:
@@ -275,6 +320,10 @@ body.pda-app {
         inset 0 0 30px #000;
 }
 
+/* =========================================================
+   SIDE PANELS
+   ========================================================= */
+
 .device-panel {
 
     position:
@@ -301,6 +350,10 @@ body.pda-app {
     border-left:
         1px solid #4a4f58;
 }
+
+/* =========================================================
+   SCREWS
+   ========================================================= */
 
 .screw {
 
@@ -400,6 +453,10 @@ body.pda-app {
         12px;
 }
 
+/* =========================================================
+   LEFT PANEL ENGRAVING
+   ========================================================= */
+
 .panel-engraving {
 
     margin-top:
@@ -426,6 +483,10 @@ body.pda-app {
     font:
         10px var(--mono);
 }
+
+/* =========================================================
+   LEFT PANEL LED CLUSTER
+   ========================================================= */
 
 .panel-leds {
 
@@ -502,6 +563,10 @@ body.pda-app {
         1.2s;
 }
 
+/* =========================================================
+   AUDIO BUTTON
+   ========================================================= */
+
 .music-toggle {
 
     position:
@@ -567,6 +632,11 @@ body.pda-app {
         0 1px 0 #090a0d;
 }
 
+/* =========================================================
+   EMBOSSED SPEAKER GLYPH
+   Matches the recessed/engraved VOL lettering
+   ========================================================= */
+
 .music-icon {
     display: block;
 
@@ -578,6 +648,7 @@ body.pda-app {
 
     color: #20242c;
 
+    /* recessed / engraved plastic effect */
     text-shadow:
         1px 1px 0 rgba(255,255,255,.12),
         -1px -1px 0 rgba(0,0,0,.75);
@@ -623,6 +694,10 @@ body.pda-app {
     color:
         var(--green);
 }
+
+/* =========================================================
+   VOLUME WHEEL
+   ========================================================= */
 
 .volume-wheel {
 
@@ -737,6 +812,10 @@ body.pda-app {
         12px var(--display);
 }
 
+/* =========================================================
+   PDA SCREEN OUTER FRAME
+   ========================================================= */
+
 .pda-screen {
 
     min-width:
@@ -754,6 +833,10 @@ body.pda-app {
     box-shadow:
         inset 0 0 25px #000;
 }
+
+/* =========================================================
+   LCD SCREEN
+   ========================================================= */
 
 .screen-interface {
 
@@ -780,14 +863,18 @@ body.pda-app {
     border:
         1px solid #34382b;
 
-    box-shadow:
+    
 
+    box-shadow:
+    
         inset 0 0 45px
             rgba(40, 45, 28, .28),
 
+        
         inset 0 0 90px
             rgba(25, 30, 18, .18),
 
+        
         0 0 8px
             rgba(0, 0, 0, .30);
 
@@ -815,6 +902,10 @@ body.pda-app {
         minmax(0, 1fr);
 }
 
+/* =========================================================
+   LCD GRID + EDGE ILLUMINATION
+   ========================================================= */
+
 .screen-interface:before {
 
     content: '';
@@ -829,6 +920,8 @@ body.pda-app {
 
     background:
 
+        
+
         linear-gradient(
             90deg,
             rgba(65, 69, 48, .075) 1px,
@@ -840,6 +933,8 @@ body.pda-app {
             rgba(65, 69, 48, .075) 1px,
             transparent 1px
         ),
+
+        
 
         radial-gradient(
             ellipse at 50% 45%,
@@ -860,6 +955,10 @@ body.pda-app {
         20px 20px,
         100% 100%;
 }
+
+/* =========================================================
+   LCD TEXTURE
+   ========================================================= */
 
 .screen-interface:after {
 
@@ -899,6 +998,10 @@ body.pda-app {
     z-index:
         30;
 }
+
+/* =========================================================
+   SCREEN HEADER
+   ========================================================= */
 
 .screen-header {
 
@@ -960,6 +1063,10 @@ body.pda-app {
         var(--lcd-ink);
 }
 
+/* =========================================================
+   SIGNAL DOT
+   ========================================================= */
+
 .signal-dot {
 
     display:
@@ -980,6 +1087,10 @@ body.pda-app {
     background:
         var(--lcd-ink);
 }
+
+/* =========================================================
+   SIGNAL BARS
+   ========================================================= */
 
 .signal-bars {
 
@@ -1022,6 +1133,10 @@ body.pda-app {
     height:
         13px;
 }
+
+/* =========================================================
+   BATTERY
+   ========================================================= */
 
 .battery {
 
@@ -1076,6 +1191,10 @@ body.pda-app {
     background:
         var(--lcd-ink);
 }
+
+/* =========================================================
+   LCD NAVIGATION
+   ========================================================= */
 
 .screen-tabs {
 
@@ -1183,6 +1302,10 @@ body.pda-app {
         none;
 }
 
+/* =========================================================
+   SCREEN PANELS
+   ========================================================= */
+
 .screen-panels {
 
     grid-column:
@@ -1225,6 +1348,10 @@ body.pda-app {
         none !important;
 }
 
+/* =========================================================
+   LCD TYPOGRAPHY
+   ========================================================= */
+
 .screen-interface,
 .screen-interface button,
 .screen-interface input,
@@ -1255,6 +1382,10 @@ body.pda-app {
     color:
         var(--lcd-ink);
 }
+
+/* =========================================================
+   INVERTED LCD HEADINGS
+   ========================================================= */
 
 .screen-panel h1,
 .screen-panel h2,
@@ -1339,6 +1470,10 @@ body.pda-app {
         center;
 }
 
+/* =========================================================
+   NORMAL LCD TEXT
+   ========================================================= */
+
 .role,
 .lead,
 .screen-panel p,
@@ -1397,6 +1532,10 @@ body.pda-app {
         .25px;
 }
 
+/* =========================================================
+   ABOUT GRID
+   ========================================================= */
+
 .about-grid {
 
     display:
@@ -1436,6 +1575,10 @@ body.pda-app {
     text-shadow:
         none;
 }
+
+/* =========================================================
+   LCD EMPHASIS BLOCK
+   ========================================================= */
 
 .stat-grid {
 
@@ -1500,6 +1643,10 @@ body.pda-app {
         1.25;
 }
 
+/* =========================================================
+   LINKS
+   ========================================================= */
+
 .link-row {
 
     display:
@@ -1544,6 +1691,10 @@ body.pda-app {
     color:
         var(--screen);
 }
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
 
 .timeline {
 
@@ -1621,6 +1772,10 @@ body.pda-app {
         400;
 }
 
+/* =========================================================
+   DATA GRID
+   ========================================================= */
+
 .data-grid {
 
     display:
@@ -1674,6 +1829,10 @@ body.pda-app {
         400;
 }
 
+/* =========================================================
+   PROJECTS / BLOG
+   ========================================================= */
+
 .project-list,
 .blog-list {
 
@@ -1704,6 +1863,10 @@ body.pda-app {
     white-space:
         nowrap;
 }
+
+/* =========================================================
+   MISC
+   ========================================================= */
 
 .misc-layout {
 
@@ -1758,6 +1921,10 @@ body.pda-app {
     color:
         inherit;
 }
+
+/* =========================================================
+   TERMINAL
+   ========================================================= */
 
 .terminal-bar {
 
@@ -1845,6 +2012,10 @@ body.pda-app {
         right;
 }
 
+/* =========================================================
+   TERMINAL OUTPUT
+   ========================================================= */
+
 .terminal-output {
 
     display:
@@ -1880,6 +2051,7 @@ body.pda-app {
     white-space:
         pre-wrap;
 
+    
     scrollbar-width:
         none;
 
@@ -1896,6 +2068,10 @@ body.pda-app {
     display:
         block;
 }
+
+/* =========================================================
+   TERMINAL INPUT
+   ========================================================= */
 
 .terminal-input-row {
 
@@ -1966,6 +2142,10 @@ body.pda-app {
         .65;
 }
 
+/* =========================================================
+   TERMINAL LCD TEXT FIX
+   ========================================================= */
+
 .terminal-bar,
 .terminal-bar > button,
 .terminal-bar > button span,
@@ -2006,6 +2186,10 @@ body.pda-app {
     opacity:
         .65;
 }
+
+/* =========================================================
+   TERMINAL // LCD ARROW SCROLL CONTROLS
+   ========================================================= */
 
 .terminal-scroll-controls {
 
@@ -2141,6 +2325,10 @@ body.pda-app {
         translateY(1px);
 }
 
+/* =========================================================
+   LCD UTILITY COLORS
+   ========================================================= */
+
 .text-pda-green,
 .text-pda-cyan,
 .text-pda-muted {
@@ -2148,6 +2336,10 @@ body.pda-app {
     color:
         var(--screen);
 }
+
+/* =========================================================
+   HARDWARE TYPOGRAPHY
+   ========================================================= */
 
 .device-mark {
 
@@ -2161,6 +2353,10 @@ body.pda-app {
     font-family:
         var(--display);
 }
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
 
 @keyframes blink {
 
@@ -2191,6 +2387,10 @@ body.pda-app {
     }
 }
 
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 760px) {
 
     .pda-device {
@@ -2204,6 +2404,8 @@ body.pda-app {
         margin:
             8px auto;
     }
+
+    
 
     .device-top-strip,
     .device-bottom-strip {
@@ -2235,6 +2437,8 @@ body.pda-app {
             none;
     }
 
+    
+
     .device-frame {
 
         grid-template-columns:
@@ -2242,6 +2446,8 @@ body.pda-app {
             minmax(0, 1fr)
             30px;
     }
+
+    
 
     .device-panel {
 
@@ -2253,6 +2459,8 @@ body.pda-app {
         padding:
             0;
     }
+
+    
 
     .panel-leds {
 
@@ -2271,6 +2479,8 @@ body.pda-app {
         height:
             5px;
     }
+
+    
 
     .music-toggle {
 
@@ -2298,6 +2508,8 @@ body.pda-app {
         margin-top:
             1px;
     }
+
+    
 
     .volume-wheel {
 
@@ -2341,6 +2553,8 @@ body.pda-app {
             8px;
     }
 
+    
+
     .screw {
 
         width:
@@ -2382,6 +2596,8 @@ body.pda-app {
             7px;
     }
 
+    
+
     .pda-screen {
 
         padding:
@@ -2419,6 +2635,8 @@ body.pda-app {
         gap:
             7px;
     }
+
+    
 
     .screen-tabs {
 
@@ -2474,6 +2692,8 @@ body.pda-app {
             normal;
     }
 
+    
+
     .screen-panels {
 
         grid-column:
@@ -2510,6 +2730,8 @@ body.pda-app {
             18px;
     }
 
+    
+
     .screen-panel h1,
     .screen-panel h2,
     .screen-panel h3,
@@ -2525,6 +2747,8 @@ body.pda-app {
             center;
     }
 
+    
+
     .stat-grid {
 
         display:
@@ -2536,6 +2760,8 @@ body.pda-app {
         line-height:
             1.55;
     }
+
+    
 
     .about-grid {
 
@@ -2552,11 +2778,15 @@ body.pda-app {
             18px;
     }
 
+    
+
     .stat-grid {
 
         grid-template-columns:
             repeat(2, 1fr);
     }
+
+    
 
     .timeline article {
 
@@ -2567,12 +2797,16 @@ body.pda-app {
             3px;
     }
 
+    
+
     .data-grid,
     .misc-layout {
 
         grid-template-columns:
             1fr;
     }
+
+    
 
     .project-list article {
 
@@ -2588,6 +2822,8 @@ body.pda-app {
         margin-top:
             10px;
     }
+
+    
 
     .terminal-input-row {
 
@@ -2638,6 +2874,10 @@ body.pda-app {
     }
 }
 
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
 
     *,
@@ -2655,6 +2895,22 @@ body.pda-app {
     }
 }
 
+/* =========================================================
+   PALM LCD // ROUNDED + DOTTED UI TREATMENT
+   ========================================================= */
+
+/* =========================================================
+   SCREEN HEADER SEPARATOR
+   ========================================================= */
+
+/*
+ * Replace the hard horizontal line beneath:
+ *
+ *     PDA-7X                         TIME
+ *
+ * with the characteristic dotted LCD rule.
+ */
+
 .screen-header {
 
     border-bottom:
@@ -2662,12 +2918,20 @@ body.pda-app {
         rgba(48, 53, 38, .38);
 }
 
+/* =========================================================
+   NAVIGATION PANEL SEPARATOR
+   ========================================================= */
+
 .screen-tabs {
 
     border-left:
         2px dotted
         rgba(48, 53, 38, .38);
 }
+
+/* =========================================================
+   NAVIGATION BUTTONS
+   ========================================================= */
 
 .screen-tab {
 
@@ -2709,6 +2973,10 @@ body.pda-app {
         none;
 }
 
+/* =========================================================
+   LCD SECTION HEADINGS
+   ========================================================= */
+
 .screen-panel h1,
 .screen-panel h2,
 .screen-panel h3,
@@ -2717,10 +2985,15 @@ body.pda-app {
     border-radius:
         4px;
 
+    
     box-shadow:
         0 1px 0
         rgba(48, 53, 38, .18);
 }
+
+/* =========================================================
+   LINKS
+   ========================================================= */
 
 .link-row a {
 
@@ -2731,6 +3004,10 @@ body.pda-app {
     border-radius:
         4px;
 }
+
+/* =========================================================
+   DATA / PROJECT / BLOG BOXES
+   ========================================================= */
 
 .data-grid article,
 .project-list article,
@@ -2744,6 +3021,10 @@ body.pda-app {
         5px;
 }
 
+/* =========================================================
+   MISC BOXES
+   ========================================================= */
+
 .misc-layout > div {
 
     border:
@@ -2753,6 +3034,10 @@ body.pda-app {
     border-radius:
         5px;
 }
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
 
 .timeline {
 
@@ -2773,11 +3058,19 @@ body.pda-app {
         50%;
 }
 
+/* =========================================================
+   STAT BLOCK
+   ========================================================= */
+
 .stat-grid {
 
     border-radius:
         4px;
 }
+
+/* =========================================================
+   INLINE LCD BLOCKS
+   ========================================================= */
 
 .lcd-invert,
 .easter-egg {
@@ -2785,6 +3078,10 @@ body.pda-app {
     border-radius:
         4px;
 }
+
+/* =========================================================
+   BATTERY
+   ========================================================= */
 
 .battery {
 
@@ -2795,6 +3092,10 @@ body.pda-app {
     border-radius:
         2px;
 }
+
+/* =========================================================
+   TERMINAL SEPARATORS
+   ========================================================= */
 
 .terminal-bar {
 
@@ -2810,6 +3111,10 @@ body.pda-app {
         rgba(201, 202, 147, .35);
 }
 
+/* =========================================================
+   TERMINAL SCROLL BUTTONS
+   ========================================================= */
+
 .terminal-scroll-button {
 
     border:
@@ -2819,6 +3124,10 @@ body.pda-app {
     border-radius:
         4px;
 }
+
+/* =========================================================
+   LCD SCREEN OUTER EDGE
+   ========================================================= */
 
 .screen-interface {
 
@@ -2830,10 +3139,18 @@ body.pda-app {
         3px;
 }
 
+/* =========================================================
+   SCREEN PANELS
+   ========================================================= */
+
 .screen-panels {
     border-radius:
         3px;
 }
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 760px) {
 
@@ -2866,6 +3183,10 @@ body.pda-app {
             4px;
     }
 }
+
+/* =========================================================
+   PDA-7X // ABS PLASTIC HARDWARE FINISH
+   ========================================================= */
 
 .device-top-strip,
 .device-bottom-strip,
@@ -2952,6 +3273,10 @@ body.pda-app {
         inset -1px 0 rgba(0,0,0,.45);
 }
 
+/* =========================================================
+   CIRCULAR AUDIO BUTTON // MOULDED PLASTIC + LIGHT RING
+   ========================================================= */
+
 .music-toggle {
     width: 66px;
     height: 66px;
@@ -3028,6 +3353,10 @@ body.pda-app {
     z-index: 2;
 }
 
+/* =========================================================
+   VOLUME WHEEL // PALM-STYLE MOULDED CONTROL
+   ========================================================= */
+
 .volume-wheel {
     width: 72px;
     height: 72px;
@@ -3088,6 +3417,10 @@ body.pda-app {
     z-index: 4;
 }
 
+/* =========================================================
+   HARDWARE EDGE HIGHLIGHTS
+   ========================================================= */
+
 .device-top-strip {
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,.13),
@@ -3107,6 +3440,10 @@ body.pda-app {
     outline: 1px solid rgba(255,255,255,.025);
     outline-offset: -1px;
 }
+
+/* =========================================================
+   MOBILE HARDWARE CONTROLS
+   ========================================================= */
 
 @media (max-width: 760px) {
     .music-toggle {
@@ -3150,6 +3487,10 @@ body.pda-app {
     }
 }
 
+/* =========================================================
+   PDA-7X // FINAL HARDWARE MATERIAL + LCD BEHAVIOUR PASS
+   ========================================================= */
+
 :root {
     --hardware-font:
         'Rajdhani',
@@ -3174,6 +3515,10 @@ body.pda-app {
          0    2px 2px rgba(0,0,0,.35);
     letter-spacing: .9px;
 }
+
+/* =========================================================
+   BLACK MOULDED ABS // PROMINENT IRREGULAR MICRO-TEXTURE
+   ========================================================= */
 
 .device-top-strip,
 .device-bottom-strip,
@@ -3217,6 +3562,10 @@ body.pda-app {
         inset 0 18px 24px rgba(255,255,255,.015),
         inset 0 -24px 30px rgba(0,0,0,.36);
 }
+
+/* =========================================================
+   NEUMORPHIC CIRCULAR HARDWARE CONTROLS
+   ========================================================= */
 
 .music-toggle {
     background:
@@ -3304,6 +3653,10 @@ body.pda-app {
         drop-shadow(1px 1px 1px rgba(0,0,0,.85));
 }
 
+/* =========================================================
+   LCD NAVIGATION // INSTANT REFRESH, NO WEB-STYLE FADE
+   ========================================================= */
+
 .screen-panel {
     animation: none !important;
     transition: none !important;
@@ -3322,6 +3675,10 @@ body.pda-app {
 .screen-panels {
     transition: none !important;
 }
+
+/* =========================================================
+   HARDWARE LABEL ENGRAVING
+   ========================================================= */
 
 .device-mark,
 .panel-engraving {
@@ -3358,6 +3715,10 @@ body.pda-app {
     }
 }
 
+/* =========================================================
+   PDA-7X // TOP & BOTTOM HOUSING TYPOGRAPHY
+   ========================================================= */
+
 .device-top-strip,
 .device-bottom-strip {
     font-family: var(--hardware-font);
@@ -3371,6 +3732,11 @@ body.pda-app {
          1px  1px 1px rgba(0,0,0,.95),
          0    2px 2px rgba(0,0,0,.35);
 }
+
+
+/* =========================================================
+   PDA-7X // CONCAVE POWER BUTTON
+   ========================================================= */
 
 .power-button {
     position: absolute;
@@ -3415,6 +3781,7 @@ body.pda-app {
     transition: filter .12s ease, transform .08s ease;
 }
 
+/* Deep recessed centre */
 .power-button::before {
     content: '';
     position: absolute;
@@ -3436,6 +3803,7 @@ body.pda-app {
     pointer-events: none;
 }
 
+/* Thin machined/illuminated outer edge */
 .power-button::after {
     content: '';
     position: absolute;
@@ -3447,6 +3815,7 @@ body.pda-app {
     pointer-events: none;
 }
 
+/* Engraved power glyph */
 .power-symbol {
     position: relative;
     z-index: 2;
@@ -3498,6 +3867,10 @@ body.pda-app {
         -1px -1px 1px rgba(0,0,0,1);
 }
 
+/* =========================================================
+   PDA-7X // CRT POWER-OFF STATE
+   ========================================================= */
+
 .screen-interface {
     transform-origin: center center;
 }
@@ -3512,6 +3885,7 @@ body.pda-app {
     pointer-events: none;
 }
 
+/* Old television shutdown: screen collapses vertically */
 .screen-interface.pda-powering-off {
     animation: pda-crt-off 720ms cubic-bezier(.55,.02,.98,.12) forwards;
     pointer-events: none;
@@ -3604,6 +3978,10 @@ body.pda-app {
     }
 }
 
+/* =========================================================
+   PDA-7X // CRT POWER-ON STATE
+   ========================================================= */
+
 .screen-interface.pda-powering-on {
     animation: pda-crt-on 520ms cubic-bezier(.16,1,.3,1) forwards;
 }
@@ -3685,6 +4063,10 @@ body.pda-app {
     }
 }
 
+/* =========================================================
+   POWER BUTTON // SMALL SCREENS
+   ========================================================= */
+
 @media (max-width: 760px) {
     .power-button {
         width: 52px;
@@ -3697,15 +4079,25 @@ body.pda-app {
     }
 }
 
+/* =========================================================
+   PDA MUSIC PLAYER
+   ========================================================= */
+
 .pda-music-player {
     position: absolute;
 
+    /*
+     * The marked area is roughly the lower-right portion
+     * of the LCD, immediately before the terminal.
+     */
     right: 12.5%;
     bottom: 12%;
     width: min(330px, 28%);
     min-width: 250px;
 
     padding: 14px 16px;
+
+    box-sizing: border-box;
 
     color: #303321;
 
@@ -3739,6 +4131,11 @@ body.pda-app {
         transform 180ms ease;
 }
 
+
+/* ---------------------------------------------------------
+   HEADER
+   --------------------------------------------------------- */
+
 .music-player-header {
     display: flex;
 
@@ -3752,6 +4149,7 @@ body.pda-app {
         1px dotted rgba(45, 49, 27, 0.5);
 }
 
+
 .music-player-label {
     font-size: 14px;
 
@@ -3760,6 +4158,7 @@ body.pda-app {
     font-weight: 600;
 }
 
+
 .music-player-status {
     font-size: 11px;
 
@@ -3767,6 +4166,11 @@ body.pda-app {
 
     opacity: 0.72;
 }
+
+
+/* ---------------------------------------------------------
+   DISPLAY
+   --------------------------------------------------------- */
 
 .music-player-display {
     display: flex;
@@ -3780,6 +4184,7 @@ body.pda-app {
     padding: 13px 0;
 }
 
+
 .music-track-info {
     display: flex;
 
@@ -3789,6 +4194,7 @@ body.pda-app {
 
     flex: 1;
 }
+
 
 .music-track-index {
     display: flex;
@@ -3817,6 +4223,7 @@ body.pda-app {
         inset -2px -2px 3px rgba(0,0,0,0.3);
 }
 
+
 .music-track-details {
     display: flex;
 
@@ -3826,6 +4233,7 @@ body.pda-app {
 
     gap: 3px;
 }
+
 
 .music-track-title {
     overflow: hidden;
@@ -3839,6 +4247,7 @@ body.pda-app {
     letter-spacing: 0.04em;
 }
 
+
 .music-track-subtitle {
     font-size: 10px;
 
@@ -3846,6 +4255,11 @@ body.pda-app {
 
     letter-spacing: 0.08em;
 }
+
+
+/* ---------------------------------------------------------
+   VISUALIZER
+   --------------------------------------------------------- */
 
 .music-visualizer {
     display: flex;
@@ -3861,6 +4275,7 @@ body.pda-app {
 
     flex-shrink: 0;
 }
+
 
 .music-visualizer i {
     display: block;
@@ -3879,6 +4294,12 @@ body.pda-app {
         inset 1px 1px 1px rgba(255,255,255,0.25),
         1px 1px 1px rgba(0,0,0,0.25);
 }
+
+
+/*
+ * Visualizer animation only runs while the player
+ * is actually playing.
+ */
 
 .pda-music-player.music-playing
 .music-visualizer i:nth-child(1) {
@@ -3940,6 +4361,7 @@ body.pda-app {
     animation: pdaMusicBar 0.59s infinite ease-in-out 0.2s;
 }
 
+
 @keyframes pdaMusicBar {
 
     0%,
@@ -3951,6 +4373,11 @@ body.pda-app {
         height: 27px;
     }
 }
+
+
+/* ---------------------------------------------------------
+   CONTROLS
+   --------------------------------------------------------- */
 
 .music-player-controls {
     display: flex;
@@ -3964,6 +4391,7 @@ body.pda-app {
     border-top:
         1px dotted rgba(45, 49, 27, 0.42);
 }
+
 
 .music-player-button {
     width: 34px;
@@ -4008,11 +4436,13 @@ body.pda-app {
         transform 100ms ease;
 }
 
+
 .music-player-button:hover {
     box-shadow:
         2px 2px 4px rgba(50,55,30,0.25),
         -1px -1px 4px rgba(255,255,255,0.4);
 }
+
 
 .music-player-button:active {
     transform: translateY(1px);
@@ -4022,11 +4452,13 @@ body.pda-app {
         inset -1px -1px 3px rgba(255,255,255,0.35);
 }
 
+
 .music-player-button:focus-visible {
     outline: 1px dotted #303321;
 
     outline-offset: 3px;
 }
+
 
 .music-player-progress {
     display: flex;
@@ -4040,6 +4472,7 @@ body.pda-app {
     min-width: 0;
 }
 
+
 .music-player-progress span {
     width: 34px;
 
@@ -4051,6 +4484,11 @@ body.pda-app {
 
     opacity: 0.7;
 }
+
+
+/* ---------------------------------------------------------
+   RANGE INPUTS
+   --------------------------------------------------------- */
 
 .music-progress,
 .music-player-volume input {
@@ -4075,6 +4513,7 @@ body.pda-app {
         inset 1px 1px 2px rgba(0,0,0,0.2);
 }
 
+
 .music-progress::-webkit-slider-thumb,
 .music-player-volume input::-webkit-slider-thumb {
     appearance: none;
@@ -4098,6 +4537,7 @@ body.pda-app {
         -1px -1px 2px rgba(255,255,255,0.5);
 }
 
+
 .music-progress::-moz-range-thumb,
 .music-player-volume input::-moz-range-thumb {
     width: 12px;
@@ -4119,6 +4559,11 @@ body.pda-app {
         -1px -1px 2px rgba(255,255,255,0.5);
 }
 
+
+/* ---------------------------------------------------------
+   VOLUME
+   --------------------------------------------------------- */
+
 .music-player-volume {
     display: flex;
 
@@ -4133,9 +4578,11 @@ body.pda-app {
     opacity: 0.75;
 }
 
+
 .music-player-volume input {
     flex: 1;
 }
+
 
 #music-volume-value {
     width: 25px;
@@ -4144,6 +4591,11 @@ body.pda-app {
 
     font-size: 9px;
 }
+
+
+/* ---------------------------------------------------------
+   PLAYING STATE
+   --------------------------------------------------------- */
 
 .pda-music-player.music-playing {
 
@@ -4156,10 +4608,16 @@ body.pda-app {
         0 3px 9px rgba(35,40,20,0.16);
 }
 
+
 .pda-music-player.music-playing
 .music-player-status {
     opacity: 1;
 }
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------- */
 
 @media (max-width: 1100px) {
 
@@ -4169,6 +4627,7 @@ body.pda-app {
     }
 
 }
+
 
 @media (max-width: 800px) {
 
@@ -4183,19 +4642,23 @@ body.pda-app {
         padding: 11px 12px;
     }
 
+
     .music-track-title {
         font-size: 11px;
     }
 
+
     .music-track-subtitle {
         font-size: 8px;
     }
+
 
     .music-visualizer {
         display: none;
     }
 
 }
+
 
 @media (max-width: 600px) {
 
@@ -4209,17 +4672,21 @@ body.pda-app {
         padding: 9px;
     }
 
+
     .music-player-header {
         padding-bottom: 5px;
     }
+
 
     .music-player-label {
         font-size: 10px;
     }
 
+
     .music-player-status {
         font-size: 8px;
     }
+
 
     .music-track-index {
         width: 23px;
@@ -4230,13 +4697,16 @@ body.pda-app {
         font-size: 9px;
     }
 
+
     .music-track-title {
         font-size: 9px;
     }
 
+
     .music-track-subtitle {
         display: none;
     }
+
 
     .music-player-button {
         width: 28px;
@@ -4245,11 +4715,13 @@ body.pda-app {
         font-size: 10px;
     }
 
+
     .music-player-progress span {
         width: 28px;
 
         font-size: 7px;
     }
+
 
     .music-player-volume {
         margin-top: 7px;
@@ -4258,6 +4730,7 @@ body.pda-app {
     }
 
 }
+
 
 @media (max-width: 450px) {
 
@@ -4268,96 +4741,9 @@ body.pda-app {
         width: 48%;
     }
 
+
     .music-player-volume-button {
         display: none;
     }
 
-}
-
-/* Layout fixes: keep navigation, terminal and player in independent areas. */
-.screen-interface {
-    grid-template-columns: minmax(0, 1fr) 132px;
-    grid-template-rows: 44px minmax(0, 1fr) auto;
-}
-
-.screen-tabs {
-    grid-column: 2;
-    grid-row: 2;
-    position: relative;
-    z-index: 100;
-    min-width: 0;
-}
-
-.screen-panels {
-    grid-column: 1;
-    grid-row: 2;
-    min-width: 0;
-    min-height: 0;
-    position: relative;
-    z-index: 1;
-}
-
-.terminal-bar {
-    grid-column: 1;
-    grid-row: 3;
-    width: 100%;
-    min-width: 0;
-    position: relative;
-    z-index: 10;
-    overflow: hidden;
-}
-
-.pda-music-player {
-    top: 62px;
-    right: 150px;
-    bottom: auto;
-    width: min(330px, 32%);
-    min-width: 250px;
-    z-index: 200;
-    pointer-events: auto;
-}
-
-.pda-music-player button,
-.pda-music-player input {
-    pointer-events: auto;
-}
-
-@media (max-width: 1100px) {
-    .pda-music-player {
-        top: 58px;
-        right: 145px;
-        width: min(310px, 32%);
-    }
-}
-
-@media (max-width: 800px) {
-    .screen-interface {
-        grid-template-columns: minmax(0, 1fr) 82px;
-        grid-template-rows: 37px minmax(0, 1fr) auto;
-    }
-
-    .pda-music-player {
-        top: 48px;
-        right: 90px;
-        bottom: auto;
-        width: min(300px, calc(100% - 100px));
-        max-width: none;
-    }
-}
-
-@media (max-width: 600px) {
-    .pda-music-player {
-        top: 46px;
-        right: 88px;
-        width: min(230px, calc(100% - 96px));
-        min-width: 0;
-    }
-}
-
-@media (max-width: 450px) {
-    .pda-music-player {
-        top: 44px;
-        right: 84px;
-        width: min(190px, calc(100% - 90px));
-    }
 }
