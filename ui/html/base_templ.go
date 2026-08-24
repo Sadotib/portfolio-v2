@@ -29,6 +29,18 @@ func Base(title string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\" class=\"bg-base-100 text-neutral\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Bitopan Das | Portfolio</title><meta name=\"description\" content=\"Portfolio Website of Bitopan Das\"><meta name=\"author\" content=\"Bitopan Das\"><meta property=\"og:title\" content=\"Bitopan Das | Portfolio\"><meta property=\"og:description\" content=\"Portfolio Website of Bitopan Das\"><meta property=\"og:type\" content=\"website\"><meta property=\"og:url\" content=\"https://sadotib.in\"><link rel=\"shortcut icon\" href=\"/static/img/favicon.ico\" type=\"image/x-icon\"><link href=\"/static/css/portfolio.css\" rel=\"stylesheet\"><script src=\"/static/js/portfolio.js\"></script><script src=\"/static/js/htmx.min.js\"></script></head><body id=\"body \" class=\"flex flex-col min-h-screen\"><main class=\"flex-grow\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templ_7745c5c3_Var1.Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</main><!-- Footer --></body></html>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
 		return nil
 	})
 }
