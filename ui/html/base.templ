@@ -1,0 +1,37 @@
+package html
+
+templ Base(title string) {
+	<!DOCTYPE html>
+	<html lang="en" class="bg-base-100 text-neutral">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>Bitopan Das | Portfolio</title>
+			<meta
+				name="description"
+				content="Portfolio Website of Bitopan Das"
+			/>
+			<meta name="author" content="Bitopan Das"/>
+			<meta property="og:title" content="Bitopan Das | Portfolio"/>
+			<meta
+				property="og:description"
+				content="Portfolio Website of Bitopan Das"
+			/>
+			<meta property="og:type" content="website"/>
+			<meta property="og:url" content="https://sadotib.in"/>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+			<link rel="icon" type="image/png" href="/ui/static/img/favicon.ico"/>
+			<link href="/ui/static/css/portfolio.css" rel="stylesheet"/>
+			<script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.10/dist/htmx.min.js" integrity="sha384-H5SrcfygHmAuTDZphMHqBJLc3FhssKjG7w/CeCpFReSfwBWDTKpkzPP8c+cLsK+V" crossorigin="anonymous"></script>
+			
+		</head>
+		<body id="body " class="flex flex-col min-h-screen">
+			
+			<main class="flex-grow">
+				{ children... }
+			</main>
+			<!-- Footer -->
+			
+		</body>
+	</html>
+}
