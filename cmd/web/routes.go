@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"os"
 	"portfolio-v2/ui"
+	"portfolio-v2/ui/html/pages"
 
 	"github.com/julienschmidt/httprouter"
 	"github.com/justinas/alice"
@@ -56,7 +57,7 @@ func (app *application) routes() http.Handler {
 
 	router.RedirectTrailingSlash = true
 	router.NotFound = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		app.notFound(w)
+		app.notFound(w, r, pages.NotFound())
 	})
 	router.MethodNotAllowed = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		app.clientError(w, http.StatusMethodNotAllowed)

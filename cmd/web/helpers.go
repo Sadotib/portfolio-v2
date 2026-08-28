@@ -31,8 +31,11 @@ func (app *application) clientError(w http.ResponseWriter, status int) {
 // For consistency, we'll also implement a notFound helper. This is simply a
 // convenience wrapper around clientError which sends a 404 Not Found response to
 // the user.
-func (app *application) notFound(w http.ResponseWriter) {
-	app.clientError(w, http.StatusNotFound)
+func (app *application) notFound(w http.ResponseWriter, r *http.Request, c templ.Component) {
+	//we'll add a custom 404 not found page render here
+	app.render(w, r, c)
+	// app.clientError(w, http.StatusNotFound)
+
 }
 
 func (app *application) render(w http.ResponseWriter, r *http.Request, c templ.Component) error {
