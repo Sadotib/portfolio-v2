@@ -43,7 +43,7 @@ func Home() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div><div class=\"home-content\"><h1>This is Home</h1></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"home-hero\"><img src=\"/static/img/face.webp\" alt=\"Bitopan\" class=\"home-image\"><div class=\"home-content\"><h1>Hello, World</h1><h2>I am Bitopan, still looking for my passion</h2></div></section>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
