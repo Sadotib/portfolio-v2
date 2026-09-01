@@ -8,6 +8,8 @@ package pages
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
+import "portfolio-v2/ui/html"
+
 func About() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
@@ -29,6 +31,28 @@ func About() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
+		templ_7745c5c3_Var2 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+			if !templ_7745c5c3_IsBuffer {
+				defer func() {
+					templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+					if templ_7745c5c3_Err == nil {
+						templ_7745c5c3_Err = templ_7745c5c3_BufErr
+					}
+				}()
+			}
+			ctx = templ.InitializeContext(ctx)
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!-- ============ SLIDE 2 : About ============ --> <section class=\"slide s-orange\" data-slide=\"1\"><div class=\"inner scrollable\"><div class=\"wrap\"><h2 class=\"big\" data-reveal style=\"margin:6px 0 16px\">Who am I?</h2><div class=\"bio-grid\"><div data-reveal><p class=\"lead\" style=\"margin-bottom:14px\">Hi, I am Bitopan Das, a developer with a background in Computer Science. I am from Assam, a state in North East India. I like working with backend stuff (probably because i suck at design, this site is a testament to that).</p><p class=\"lead\">When I am not scratching my head over some code, you can find me playing games, listening to the same song over and over or just reading some random stuff on the internet (all in my room ofc).<br>I am currently working as a GET at VOIS.</p></div><div class=\"bio-meta\" data-reveal><img src=\"/static/img/face.webp\" alt=\"Bitopan Das\" style=\"width:100%;height:min-content;box-shadow:0 0 0 3px var(--ink)\"></div></div></div></div></section>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			return nil
+		})
+		templ_7745c5c3_Err = html.Base().Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
 		return nil
 	})
 }

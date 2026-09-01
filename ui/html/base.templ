@@ -1,13 +1,14 @@
 package html
 
 import "portfolio-v2/ui/html/partials"
+// import "portfolio-v2/ui/html/pages"
 
 templ Base() {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
 			<meta charset="UTF-8"/>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 			<title>Bitopan Das | Portfolio</title>
 			<meta
 				name="description"
@@ -26,34 +27,61 @@ templ Base() {
 				href="/static/img/favicon.ico"
 				type="image/x-icon"
 			/>
-			<link
-				rel="preload"
-				as="image"
-				href="/static/img/background.webp"
-				fetchpriority="high"
-			/>
-			<link
-				rel="preload"
-				as="image"
-				href="/static/img/face.webp"
-				fetchpriority="medium"
-			/>
+			// <link
+			// 	rel="preload"
+			// 	as="image"
+			// 	href="/static/img/background.webp"
+			// 	fetchpriority="high"
+			// />
+			// <link
+			// 	rel="preload"
+			// 	as="image"
+			// 	href="/static/img/face.webp"
+			// 	fetchpriority="medium"
+			// />
 			<link
 				href="/static/css/portfolio.css"
 				rel="stylesheet"
 			/>
-			<script src="/static/js/portfolio.js"></script>
-			<script src="/static/js/htmx.min.js"></script>
+			<link rel="preconnect" href="https://fonts.googleapis.com"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+			<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=VT323&display=swap" rel="stylesheet"/>
+			<script src="/static/js/portfolio.js" defer></script>
+			<script src="/static/js/htmx.min.js" defer></script>
 		</head>
 		<body>
-			<!-- Global Header -->
+			// <!-- Global Header -->
+			// @partials.Nav()
+			// <main class="site-main">
+			// 	{ children... }
+			// </main>
+			// @partials.Modals()
+			// // global-footer
+			// @partials.Footer()
+			<!-- ===================== TOP BAR ===================== -->
 			@partials.Nav()
-			<main class="site-main">
-				{ children... }
+			<!-- ===================== DECK ===================== -->
+			<main class="deck" id="deck">
+				<div class="stage-bg" id="stageBg" aria-hidden="true"></div>
+				// @pages.Home()
+				// @pages.About()
+				// @pages.Projects()
+				// @pages.Blog()
+				// @pages.Contact()
+				
+				// @pages.Misc()
+				// @pages.Experience()
+				// @pages.Tour()
+				// @pages.More()
+				{ children...}
+				
+				
 			</main>
-			@partials.Modals()
-			// global-footer
+			
+			
 			@partials.Footer()
+			@partials.Modals()
+			
 		</body>
 	</html>
 }

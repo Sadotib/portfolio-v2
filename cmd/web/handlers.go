@@ -57,3 +57,10 @@ func (app *application) misc(w http.ResponseWriter, r *http.Request) {
 		app.serverError(w, err)
 	}
 }
+
+func (app *application) tour(w http.ResponseWriter, r *http.Request) {
+	err := app.render(w, r, pages.Tour())
+	if err != nil {
+		app.serverError(w, err)
+	}
+}

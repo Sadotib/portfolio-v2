@@ -8,6 +8,8 @@ package pages
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
+import "portfolio-v2/ui/html"
+
 func Contact() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
@@ -29,6 +31,28 @@ func Contact() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
+		templ_7745c5c3_Var2 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+			if !templ_7745c5c3_IsBuffer {
+				defer func() {
+					templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+					if templ_7745c5c3_Err == nil {
+						templ_7745c5c3_Err = templ_7745c5c3_BufErr
+					}
+				}()
+			}
+			ctx = templ.InitializeContext(ctx)
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!-- ============ SLIDE 5 : PRESS ============ --> <section class=\"slide s-bone\" data-slide=\"4\"><div class=\"inner scrollable\"><div class=\"wrap\"><span class=\"kicker hl-orange\" data-reveal>05 / Press</span><h2 class=\"big\" data-reveal style=\"margin:6px 0 16px\">What The<br>Press Says</h2><div class=\"quote-grid\"><div class=\"quote\" data-reveal><span class=\"mk\">\"</span><p>The loudest thing to happen to pop since the year 2000.</p><span class=\"src\">Noise Quarterly</span></div><div class=\"quote\" data-reveal><span class=\"mk\">\"</span><p>A glorious system crash you can actually dance to.</p><span class=\"src\">Pixel Press</span></div><div class=\"quote\" data-reveal><span class=\"mk\">\"</span><p>If sugar had a sound, this would be the overdose.</p><span class=\"src\">Volt Mag</span></div><div class=\"quote\" data-reveal><span class=\"mk\">\"</span><p>Genuinely impossible to listen to quietly.</p><span class=\"src\">Static Zine</span></div></div></div><!-- in-flow press logo marquee --><div class=\"marquee thin bleed\" data-reveal style=\"margin-top:12px;border-bottom:none;background:var(--ink);color:var(--lime)\"><div class=\"track\"><span>Noise Quarterly</span><span class=\"s\">&#10022;</span><span>Pixel Press</span><span class=\"s\">&#10022;</span> <span>Volt Mag</span><span class=\"s\">&#10022;</span><span>Static Zine</span><span class=\"s\">&#10022;</span><span>Hyperwave</span><span class=\"s\">&#10022;</span> <span>Noise Quarterly</span><span class=\"s\">&#10022;</span><span>Pixel Press</span><span class=\"s\">&#10022;</span> <span>Volt Mag</span><span class=\"s\">&#10022;</span><span>Static Zine</span><span class=\"s\">&#10022;</span><span>Hyperwave</span><span class=\"s\">&#10022;</span></div></div></div></section>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			return nil
+		})
+		templ_7745c5c3_Err = html.Base().Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
 		return nil
 	})
 }

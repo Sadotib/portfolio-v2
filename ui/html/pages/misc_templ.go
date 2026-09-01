@@ -8,6 +8,8 @@ package pages
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
+import "portfolio-v2/ui/html"
+
 func Misc() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
@@ -29,6 +31,28 @@ func Misc() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
+		templ_7745c5c3_Var2 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+			if !templ_7745c5c3_IsBuffer {
+				defer func() {
+					templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+					if templ_7745c5c3_Err == nil {
+						templ_7745c5c3_Err = templ_7745c5c3_BufErr
+					}
+				}()
+			}
+			ctx = templ.InitializeContext(ctx)
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!-- ============ SLIDE 7 : GALLERY ============ --> <section class=\"slide s-orange\" data-slide=\"6\"><div class=\"inner scrollable\"><div class=\"wrap\"><div style=\"display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap\" data-reveal><div><span class=\"kicker\">07 / Visuals</span><h2 class=\"big\" style=\"margin-top:6px\">Press Photos</h2></div><div style=\"display:flex;gap:10px;align-items:center;flex-wrap:wrap\"><div class=\"gal-nav\"><button class=\"gal-arrow\" id=\"galPrev\" aria-label=\"Previous photo\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"><path d=\"M15 5l-7 7 7 7\"></path></svg></button> <button class=\"gal-arrow\" id=\"galNext\" aria-label=\"Next photo\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"><path d=\"M9 5l7 7-7 7\"></path></svg></button></div><a class=\"btn\" href=\"#\">Download Hi Res</a></div></div><div class=\"gal-strip\" id=\"galStrip\" style=\"margin-top:14px\" data-reveal data-noswipe><figure class=\"shot\"><img src=\"images/pic-01.jpg\" alt=\"HYPRLUV press photo\" loading=\"lazy\"><figcaption class=\"cap\">Press 01</figcaption></figure><figure class=\"shot\"><img src=\"images/pic-02.jpg\" alt=\"HYPRLUV press photo\" loading=\"lazy\"><figcaption class=\"cap\">Press 02</figcaption></figure><figure class=\"shot\"><img src=\"images/pic-03.jpg\" alt=\"HYPRLUV live photo\" loading=\"lazy\"><figcaption class=\"cap\">Live 01</figcaption></figure><figure class=\"shot\"><img src=\"images/pic-04.jpg\" alt=\"HYPRLUV live photo\" loading=\"lazy\"><figcaption class=\"cap\">Live 02</figcaption></figure><figure class=\"shot\"><img src=\"images/pic-05.jpg\" alt=\"HYPRLUV studio photo\" loading=\"lazy\"><figcaption class=\"cap\">Studio</figcaption></figure><figure class=\"shot\"><img src=\"images/pic-06.jpg\" alt=\"HYPRLUV backstage photo\" loading=\"lazy\"><figcaption class=\"cap\">Backstage</figcaption></figure><figure class=\"shot\"><img src=\"images/pic-07.jpg\" alt=\"HYPRLUV cover art\" loading=\"lazy\"><figcaption class=\"cap\">Cover Art</figcaption></figure><figure class=\"shot\"><img src=\"images/pic-08.jpg\" alt=\"HYPRLUV logo pack\" loading=\"lazy\"><figcaption class=\"cap\">Logo Pack</figcaption></figure></div><p class=\"mono\" data-reveal style=\"margin-top:12px;color:var(--ink)\">Scroll sideways for more. Swap the sample images for your own hi res shots. Photo credit: add photographer name here.</p></div></div></section>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			return nil
+		})
+		templ_7745c5c3_Err = html.Base().Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
 		return nil
 	})
 }

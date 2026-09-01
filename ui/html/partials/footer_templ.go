@@ -29,7 +29,7 @@ func Footer() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!-- Persistent footer --><footer class=\"global-footer\"><a href=\"/\"><h2>Bitopan Das</h2></a></footer>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!-- ===================== FIXED FOOTER BAR (static, like the header) ===================== --><footer class=\"footerbar\"><a href=\"/\" class=\"mark\" data-goto=\"0\" aria-label=\"Bitopan Das, go to cover\">Bitopan Das</a> <span class=\"foot-credit\"><span class=\"fc-long\">use the arrows or num keys to navigate</span></span></footer>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

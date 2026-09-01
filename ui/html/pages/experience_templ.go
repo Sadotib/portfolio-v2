@@ -8,6 +8,8 @@ package pages
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
+import "portfolio-v2/ui/html"
+
 func Experience() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
@@ -29,6 +31,28 @@ func Experience() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
+		templ_7745c5c3_Var2 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+			if !templ_7745c5c3_IsBuffer {
+				defer func() {
+					templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+					if templ_7745c5c3_Err == nil {
+						templ_7745c5c3_Err = templ_7745c5c3_BufErr
+					}
+				}()
+			}
+			ctx = templ.InitializeContext(ctx)
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!-- ============ SLIDE 8 : CONTACT ============ --> <section class=\"slide s-ink\" data-slide=\"7\"><div class=\"inner scrollable\"><div class=\"wrap\"><span class=\"kicker hl-orange\" data-reveal>08 / Contact</span><h2 class=\"big hl-lime\" data-reveal style=\"margin:6px 0 16px\">Booking &amp;<br>Contact</h2><div class=\"contact-grid\"><div class=\"cc\" data-reveal><div class=\"k\">Management</div><div class=\"v\">Maya Reyes<br><a href=\"mailto:mgmt@hyprluv.fm\">mgmt@hyprluv.fm</a></div></div><div class=\"cc\" data-reveal><div class=\"k\">Booking (Worldwide)</div><div class=\"v\">Loudhaus Agency<br><a href=\"mailto:book@hyprluv.fm\">book@hyprluv.fm</a></div></div><div class=\"cc\" data-reveal><div class=\"k\">Label</div><div class=\"v\">Volt Records</div></div><div class=\"cc\" data-reveal><div class=\"k\">Press</div><div class=\"v\"><a href=\"mailto:press@hyprluv.fm\">press@hyprluv.fm</a></div></div></div><div class=\"socials\" data-reveal><span class=\"tag\">hyprluv</span> <span class=\"tag\">hyprluv.fm</span> <span class=\"tag\">All platforms</span></div><div class=\"btnrow\" data-reveal style=\"margin-top:18px\"><a class=\"btn fill\" href=\"#\">Download Full EPK</a> <a class=\"btn\" href=\"#\">Stream Now</a></div></div></div></section>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			return nil
+		})
+		templ_7745c5c3_Err = html.Base().Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
 		return nil
 	})
 }

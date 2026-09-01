@@ -8,6 +8,8 @@ package pages
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
+import "portfolio-v2/ui/html"
+
 func Blog() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
@@ -29,6 +31,28 @@ func Blog() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
+		templ_7745c5c3_Var2 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+			if !templ_7745c5c3_IsBuffer {
+				defer func() {
+					templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+					if templ_7745c5c3_Err == nil {
+						templ_7745c5c3_Err = templ_7745c5c3_BufErr
+					}
+				}()
+			}
+			ctx = templ.InitializeContext(ctx)
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!-- ============ SLIDE 4 : STATS ============ --> <section class=\"slide s-lime\" data-slide=\"3\"><div class=\"inner scrollable\"><div class=\"wrap\"><span class=\"kicker\" data-reveal>04 / By The Numbers</span><h2 class=\"big\" data-reveal style=\"margin:6px 0 16px\">By The<br>Numbers</h2><div class=\"stat-grid\" data-reveal><div class=\"stat\"><span class=\"n\">2.4M</span><span class=\"l\">Monthly Listeners</span></div><div class=\"stat\"><span class=\"n\">180M</span><span class=\"l\">Total Streams</span></div><div class=\"stat\"><span class=\"n\">920K</span><span class=\"l\">Followers</span></div><div class=\"stat\"><span class=\"n\">50M</span><span class=\"l\">Video Views</span></div><div class=\"stat\"><span class=\"n\">64</span><span class=\"l\">Sold Out Shows</span></div><div class=\"stat\"><span class=\"n\">18</span><span class=\"l\">Countries Played</span></div></div><p class=\"mono\" data-reveal style=\"margin-top:14px\">Numbers refreshed quarterly. Yes, they are still going up.</p></div></div></section>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			return nil
+		})
+		templ_7745c5c3_Err = html.Base().Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
 		return nil
 	})
 }

@@ -43,7 +43,7 @@ func Home() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"home-hero\"><img src=\"/static/img/face.webp\" alt=\"Bitopan\" class=\"home-image\"><div class=\"home-content\"><h1>Hello, World</h1><h2>I am Bitopan, still looking for my passion</h2></div></section>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!-- ============ SLIDE 1 : Home ============ --> <section class=\"slide s-ink active\" data-slide=\"0\"><div class=\"inner scrollable\"><div class=\"wrap cover\"><div class=\"toprow\" data-reveal><span class=\"kicker hl-lime\">Hello World! I am</span></div><div class=\"title\" data-reveal><h1 class=\"huge\">Bitopan<span class=\"o\">Das</span></h1></div><p class=\"lead\" data-reveal style=\"font-size:clamp(16px,1.8vw,21px);font-weight:600\">Developer and Engineer</p><div class=\"botrow\" data-reveal><div class=\"btnrow\"><a class=\"btn fill\" href=\"/about\" data-goto=\"1\">Know More About Me</a></div></div></div><!-- in-flow bottom marquee --></div></section>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

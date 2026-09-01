@@ -29,7 +29,7 @@ func Nav() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<header class=\"global-header\"><nav class=\"nav\"><a href=\"#about\"><h2>About</h2></a> <a href=\"#contact\"><h2>Contact</h2></a></nav></header>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!-- ===================== TOP BAR ===================== --><header class=\"topbar\"><div class=\"topright\"><span class=\"counter\"><span class=\"now\">01</span> / 09</span> <button class=\"menu-btn\" id=\"menuBtn\" aria-haspopup=\"true\" aria-expanded=\"false\">MENU</button></div><div class=\"nav-pills\"><button class=\"pill\" id=\"prevBtn\" aria-label=\"Previous slide\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"><path d=\"M15 5l-7 7 7 7\"></path></svg></button> <button class=\"pill\" id=\"nextBtn\" aria-label=\"Next slide\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"><path d=\"M9 5l7 7-7 7\"></path></svg></button></div></header><div class=\"progress\" aria-hidden=\"true\"><i id=\"progBar\"></i></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

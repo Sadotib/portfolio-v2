@@ -1,5 +1,51 @@
 package pages
 
+import "portfolio-v2/ui/html"
+
 templ About() {
-	
+	@html.Base() {
+		<!-- ============ SLIDE 2 : About ============ -->
+		<section class="slide s-orange" data-slide="1">
+			<div class="inner scrollable">
+				<div class="wrap">
+					// <span class="kicker" data-reveal>02 / Who</span>
+					<h2 class="big" data-reveal style="margin:6px 0 16px">Who am I?</h2>
+					<div class="bio-grid">
+						<div data-reveal>
+							<p class="lead" style="margin-bottom:14px">
+								Hi, I am Bitopan Das, a developer with a background in Computer Science. I am from Assam, a state in North East India.
+								I like working with backend stuff (probably because i suck at design, this site is a testament to that).
+							</p>
+							<p class="lead">
+								When I am not scratching my head over some code, you can find me playing games, listening to the same song over and over or just reading some random stuff on the internet (all in my room ofc).
+								<br>I am currently working as a GET at VOIS.
+							</p>
+							// <div class="tags" style="margin-top:18px">
+							// 	<span class="tag">Hyperpop</span>
+							// 	<span class="tag">Electro Club</span>
+							// 	<span class="tag">Glitch Pop</span>
+							// 	<span class="tag">Y2K Revival</span>
+							// 	<span class="tag">Maximalist</span>
+							// </div>
+						</div>
+						<div class="bio-meta" data-reveal>
+							// <div class="meta-card">
+								// <div class="k">Based</div>
+								// <div class="v">Bangkok / Everywhere</div>
+								<img src="/static/img/face.webp" alt="Bitopan Das" style="width:100%;height:min-content;box-shadow:0 0 0 3px var(--ink)"/>
+							// </div>
+							// <div class="meta-card">
+							// 	<div class="k">For Fans Of</div>
+							// 	<div class="v">Neonblood, K Rush, Sugarwave</div>
+							// </div>
+							// <div class="meta-card">
+							// 	<div class="k">Active Since</div>
+							// 	<div class="v">2023</div>
+							// </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	}
 }
