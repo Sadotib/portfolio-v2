@@ -603,15 +603,29 @@ img {
 /* SLIDE 2 BIO */
 .bio-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: clamp(20px, 3.4vw, 46px);
-    align-items: start
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
 }
 
 .bio-meta {
     display: flex;
-    flex-direction: column;
-    gap: 14px
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.about-image {
+    width: 100%;
+    max-width: 480px;
+
+    /* Keeps the image inside the available viewport */
+    max-height: 62vh;
+
+    object-fit: contain;
+    display: block;
+
+    box-shadow: 0 0 0 3px var(--ink);
 }
 
 .meta-card {

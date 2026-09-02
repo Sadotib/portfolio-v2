@@ -8,7 +8,7 @@ package partials
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-func Modals() templ.Component {
+func Popup() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -29,7 +29,7 @@ func Modals() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!-- ===================== POPUP NAV ===================== --><nav class=\"nav-pop\" id=\"navPop\" aria-hidden=\"true\"><div class=\"nav-head\"><span class=\"mark\"></span> <button class=\"x\" id=\"navClose\" aria-label=\"Close menu\">Close</button></div><ul class=\"nav-list\"><li><a href=\"/\" data-goto=\"0\"><span class=\"ix\">01</span>Home</a></li><li><a href=\"/about\" data-goto=\"1\"><span class=\"ix\">02</span>Who</a></li><li><a href=\"/projects\" data-goto=\"2\"><span class=\"ix\">03</span>The Music</a></li><li><a href=\"/blog\" data-goto=\"3\"><span class=\"ix\">04</span>Numbers</a></li><li><a href=\"/contact\" data-goto=\"4\"><span class=\"ix\">05</span>Press</a></li><li><a href=\"/tour\" data-goto=\"5\"><span class=\"ix\">06</span>On Tour</a></li><li><a href=\"/misc\" data-goto=\"6\"><span class=\"ix\">07</span>Photos</a></li><li><a href=\"/experience\" data-goto=\"7\"><span class=\"ix\">08</span>Contact</a></li></ul><div class=\"nav-foot\">Arrow keys, swipe, or tap. </div></nav>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!-- ===================== POPUP NAV ===================== --><nav class=\"nav-pop\" id=\"navPop\" aria-hidden=\"true\"><div class=\"nav-head\"><span class=\"mark\"></span> <button class=\"x\" id=\"navClose\" aria-label=\"Close menu\">Close</button></div><ul class=\"nav-list\"><li><a href=\"/\" data-goto=\"0\"><span class=\"ix\">01</span>Home</a></li><li><a href=\"/about\" data-goto=\"1\"><span class=\"ix\">02</span>About</a></li><li><a href=\"/experience\" data-goto=\"2\"><span class=\"ix\">03</span>Experience</a></li><li><a href=\"/projects\" data-goto=\"3\"><span class=\"ix\">04</span>Projects</a></li><li><a href=\"/contact\" data-goto=\"4\"><span class=\"ix\">05</span>Press</a></li><li><a href=\"/blog\" data-goto=\"5\"><span class=\"ix\">06</span>On Tour</a></li><li><a href=\"/misc\" data-goto=\"6\"><span class=\"ix\">07</span>Photos</a></li><li><a href=\"/tour\" data-goto=\"7\"><span class=\"ix\">08</span>Contact</a></li></ul><div class=\"nav-foot\">Arrow keys, swipe, or tap. </div></nav>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

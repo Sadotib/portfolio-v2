@@ -20,13 +20,13 @@
     var routes = [
         "/",
         "/about",
+        "/experience",
         "/projects",
+        "/misc",
+        "/tour",
         "/blog",
         "/contact",
-        "/tour",
-        "/misc",
-        "/experience",
-        "/more"
+        
     ];
 
 
@@ -141,7 +141,7 @@
     function pad(n) {
 
         return (
-            n < 9
+            n < 8
                 ? "0"
                 : ""
         ) + (n + 1);
@@ -487,7 +487,7 @@
                         9 -> slide 8
                     */
                     if (
-                        /^[1-9]$/.test(e.key)
+                        /^[1-8]$/.test(e.key)
                     ) {
 
                         e.preventDefault();
