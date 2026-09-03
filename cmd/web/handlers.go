@@ -51,12 +51,12 @@ func (app *application) blog(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func (app *application) misc(w http.ResponseWriter, r *http.Request) {
-	err := app.render(w, r, pages.Misc())
-	if err != nil {
-		app.serverError(w, err)
-	}
-}
+// func (app *application) misc(w http.ResponseWriter, r *http.Request) {
+// 	err := app.render(w, r, pages.Misc())
+// 	if err != nil {
+// 		app.serverError(w, err)
+// 	}
+// }
 
 func (app *application) tour(w http.ResponseWriter, r *http.Request) {
 	err := app.render(w, r, pages.Tour())

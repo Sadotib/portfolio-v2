@@ -22,7 +22,6 @@
         "/about",
         "/experience",
         "/projects",
-        "/misc",
         "/tour",
         "/blog",
         "/contact",

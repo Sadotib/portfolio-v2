@@ -747,45 +747,61 @@ img {
 }
 
 /* SLIDE 5 PRESS */
+
 .quote-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px
+    gap: 12px;
 }
 
 .quote {
-    border: 3px solid var(--ink);
+    border: 3px solid var(--bone);
     padding: clamp(13px, 2vw, 22px);
     position: relative;
-    background: var(--white)
+    background: var(--ink);
 }
 
+/* Arrow / link icon */
 .quote .mk {
     font-family: var(--font-display);
-    font-size: 54px;
-    line-height: .5;
-    color: var(--orange);
-    height: .5em;
-    display: block
+    font-size: 27px;
+    line-height: 1;
+    color: var(--lime);
+    /* border: var(--bone) 2px solid; */
+    position: absolute;
+    top: clamp(13px, 2vw, 22px);
+    right: clamp(13px, 2vw, 22px);
+    margin: 0;
 }
 
+.quote .mk:hover {
+    font-size: 30px;
+    color: var(--orange)
+}
+      
 .quote p {
     font-size: clamp(16px, 1.8vw, 20px);
     font-weight: 600;
     line-height: 1.3;
-    margin: 4px 0 9px
+
+    /* Leave space so text doesn't overlap the icon */
+    padding-right: 55px;
+
+    margin: 4px 0 9px;
+    color: var(--white);
 }
 
 .quote .src {
     font-family: var(--font-pixel);
     font-size: 17px;
     letter-spacing: 1.5px;
-    text-transform: uppercase
+    text-transform: uppercase;
+    color: var(--orange);
 }
 
 .quote:nth-child(2),
 .quote:nth-child(3) {
-    background: var(--lime)
+    background: var(--ink);
 }
 
 /* SLIDE 6 TOUR */
