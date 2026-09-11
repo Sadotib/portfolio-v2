@@ -1,0 +1,68 @@
+package pages
+
+import (
+	"portfolio-v2/internal/models";
+	"portfolio-v2/ui/html/partials"
+)
+templ BlogPost(blog models.Blog, day string) {
+
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8"/>
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+            />
+            <title>{ blog.Title } | Bitopan Das</title>
+
+            <link
+                href="/static/css/portfolio.css"
+                rel="stylesheet"
+            />
+
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+            <link
+                rel="preconnect"
+                href="https://fonts.gstatic.com"
+                crossorigin
+            />
+            <link
+                href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=VT323&display=swap"
+                rel="stylesheet"
+            />
+        </head>
+
+        <body>
+			
+            <main>
+
+                <section class="slide s-ink active blog-page">
+
+                    <div class="inner scrollable">
+
+                        <div class="wrap">
+
+                            
+
+                            // <h1 class="blog-title">
+                            //     { blog.Title }
+                            // </h1>
+
+                            <article class="blog-content">
+                                // { blog.Content }
+								@templ.Raw(blog.Content)
+								
+                            </article>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </main>
+			@partials.Footer(day)
+        </body>
+    </html>
+}

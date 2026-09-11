@@ -7,4 +7,5 @@ require (
 	github.com/julienschmidt/httprouter v1.3.0 // indirect
 	github.com/justinas/alice v1.2.0 // indirect
 	github.com/justinas/nosurf v1.2.0 // indirect
+	github.com/yuin/goldmark v1.8.6 // indirect
 )

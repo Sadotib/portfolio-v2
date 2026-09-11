@@ -11,7 +11,7 @@ import templruntime "github.com/a-h/templ/runtime"
 import "portfolio-v2/ui/html/partials"
 
 // import "portfolio-v2/ui/html/pages"
-func Base() templ.Component {
+func Base(day string) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -32,7 +32,7 @@ func Base() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, viewport-fit=cover\"><title>Bitopan Das | Portfolio</title><meta name=\"description\" content=\"Portfolio Website of Bitopan Das\"><meta name=\"author\" content=\"Bitopan Das\"><meta property=\"og:title\" content=\"Bitopan Das | Portfolio\"><meta property=\"og:description\" content=\"Portfolio Website of Bitopan Das\"><meta property=\"og:type\" content=\"website\"><meta property=\"og:url\" content=\"https://sadotib.in\"><link rel=\"shortcut icon\" href=\"/static/img/favicon.ico\" type=\"image/x-icon\"><link href=\"/static/css/portfolio.css\" rel=\"stylesheet\"><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=VT323&display=swap\" rel=\"stylesheet\"><script src=\"/static/js/portfolio.js\" defer></script><script src=\"/static/js/htmx.min.js\" defer></script></head><body><!-- ===================== TOP BAR ===================== -->")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, viewport-fit=cover\"><title>Bitopan Das | Portfolio</title><meta name=\"description\" content=\"Portfolio Website of Bitopan Das\"><meta name=\"author\" content=\"Bitopan Das\"><meta property=\"og:title\" content=\"Bitopan Das | Portfolio\"><meta property=\"og:description\" content=\"Portfolio Website of Bitopan Das\"><meta property=\"og:type\" content=\"website\"><meta property=\"og:url\" content=\"https://sadotib.in\"><link rel=\"shortcut icon\" href=\"/static/img/favicon.ico\" type=\"image/x-icon\"><link href=\"/static/css/portfolio.css\" rel=\"stylesheet\"><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=VT323&display=swap\" rel=\"stylesheet\"><script src=\"/static/js/portfolio.js\" defer></script></head><body><!-- ===================== TOP BAR ===================== -->")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -52,7 +52,7 @@ func Base() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = partials.Footer().Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = partials.Footer(day).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

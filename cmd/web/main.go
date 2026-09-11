@@ -10,9 +10,9 @@ import (
 
 type application struct {
 	debugFlag bool
-
-	errorLog *log.Logger
-	infoLog  *log.Logger
+	day       string
+	errorLog  *log.Logger
+	infoLog   *log.Logger
 }
 
 func main() {

@@ -2,8 +2,8 @@ package pages
 
 import "portfolio-v2/ui/html"
 
-templ About() {
-	@html.Base() {
+templ About(day string) {
+	@html.Base(day) {
 		<!-- ============ SLIDE 2 : About ============ -->
 		<section class="slide s-orange" data-slide="1">
 			<div class="inner scrollable">

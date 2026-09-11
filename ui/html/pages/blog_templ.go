@@ -8,9 +8,12 @@ package pages
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "portfolio-v2/ui/html"
+import (
+	"portfolio-v2/internal/models"
+	"portfolio-v2/ui/html"
+)
 
-func Blog() templ.Component {
+func Blog(blogs []models.Blog, day string) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -43,13 +46,64 @@ func Blog() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!-- ============ SLIDE 4 : STATS ============ --> <section class=\"slide s-lime\" data-slide=\"4\"><div class=\"inner scrollable\"><div class=\"wrap\"><span class=\"kicker\" data-reveal>04 / By The Numbers</span><h2 class=\"big\" data-reveal style=\"margin:6px 0 16px\">By The<br>Numbers</h2><div class=\"stat-grid\" data-reveal><div class=\"stat\"><span class=\"n\">2.4M</span><span class=\"l\">Monthly Listeners</span></div><div class=\"stat\"><span class=\"n\">180M</span><span class=\"l\">Total Streams</span></div><div class=\"stat\"><span class=\"n\">920K</span><span class=\"l\">Followers</span></div><div class=\"stat\"><span class=\"n\">50M</span><span class=\"l\">Video Views</span></div><div class=\"stat\"><span class=\"n\">64</span><span class=\"l\">Sold Out Shows</span></div><div class=\"stat\"><span class=\"n\">18</span><span class=\"l\">Countries Played</span></div></div><p class=\"mono\" data-reveal style=\"margin-top:14px\">Numbers refreshed quarterly. Yes, they are still going up.</p></div></div></section>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"slide s-ink\" data-slide=\"4\"><div class=\"inner scrollable\"><div class=\"wrap\"><h2 class=\"big hl-lime\" data-reveal style=\"margin:6px 0 14px\">Blog</h2>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			if len(blogs) == 0 {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"tour-list\" style=\"margin-top:18px\"><div class=\"tour-row\" data-reveal><span class=\"city\">No articles found</span></div></div>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			} else {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<div class=\"tour-list\" style=\"margin-top:18px\">")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				for _, blog := range blogs {
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div class=\"tour-row\" data-reveal><span class=\"city\">")
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					var templ_7745c5c3_Var3 string
+					templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(blog.Title)
+					if templ_7745c5c3_Err != nil {
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/html/pages/blog.templ`, Line: 34, Col: 40}
+					}
+					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</span> <span class=\"venue\"><a href=\"")
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					var templ_7745c5c3_Var4 templ.SafeURL
+					templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/blog/" + blog.Slug))
+					if templ_7745c5c3_Err != nil {
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/html/pages/blog.templ`, Line: 37, Col: 49}
+					}
+					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" class=\"btn fill\" target=\"_blank\">Read</a></span></div>")
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+				}
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</div>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</div></div></section>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = html.Base().Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = html.Base(day).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -57,4 +111,97 @@ func Blog() templ.Component {
 	})
 }
 
+// <div class="tour-list" style="margin-top:18px">
+// 						<div class="tour-row" data-reveal><span class="date">Oct 2026 - Present</span><span class="city">Graduate Engineer Trainee</span><span class="venue">Vodafone India Services Pvt. Ltd.</span></div>
+// 						<div class="tour-row" data-reveal><span class="date">Nov 2025 - Sep 2026</span><span class="city">Developer Trainee</span><span class="venue">Maventic Innovative Solutions Pvt. Ltd.</span></div>
+// 						// <span class="status sold">Sold Out</span>
+// 						<div class="tour-row" data-reveal><span class="date">Jun 2025 - Oct 2025</span><span class="city">Development Intern</span><span class="venue">Innect Technologies Pvt. Ltd.</span></div>
+// 						<div class="tour-row" data-reveal><span class="date">Jun 2024 - Jul 2024</span><span class="city">Student Intern</span><span class="venue">Indian Institute of Information Technology Guwahati</span></div>
+// 						// <div class="tour-row" data-reveal><span class="date">04 Jul 2026</span><span class="city">Seoul</span><span class="venue">Hyper Arena</span><span class="status sold">Sold Out</span></div>
+// 						// <div class="tour-row" data-reveal><span class="date">11 Jul 2026</span><span class="city">Berlin</span><span class="venue">Volt Club</span></div>
+// 						// <div class="tour-row" data-reveal><span class="date">18 Jul 2026</span><span class="city">London</span><span class="venue">The Gloss</span></div>
+// 					</div>
+// package pages
+
+// import (
+// 	"portfolio-v2/ui/html"
+// 	"portfolio-v2/internal/models"
+// )
+
+// templ Blog(blogs []models.Blog) {
+// 	@html.Base() {
+// 		<!-- ============ SLIDE 4 : BLog ============ -->
+// 		<section class="slide s-ink" data-slide="4">
+// 			<div class="inner scrollable">
+// 				<div class="wrap">
+// 					// <span class="kicker hl-orange" data-reveal>03 / The Music</span>
+// 					<h2 class="big hl-lime" data-reveal style="margin:6px 0 14px">Blog</h2>
+// 					// <div class="rel-hero" data-reveal>
+// 					// 	<div>
+// 					// 		// <span class="sticker">Latest</span>
+// 					// 		<div class="mid hl-orange" style="margin-top:10px">My first Blog</div>
+// 					// 		// <p class="mono" style="margin-top:5px;color:var(--white)">Maventic Innovative Solutions Pvt. Ltd.</p>
+// 					// 		// <span >Current</span>
+// 					// 	</div>
+// 					// 	// <a class="btn fill" href="#">Stream Now</a>
+// 					// 	// <p class="mono" style="margin-top:5px;color:var(--white)">Nov 2025 - Present</p>
+// 					// 	// <p class="mono" style="margin-top:5px;color:var(--white)">First</p>
+// 					// 	<a href="/blog/first-blog" class="btn fill">Read Now</a>
+// 					// </div>
+
+// 					for _, blog := range blogs {
+
+// 						<div class="rel-hero" data-reveal>
+
+// 							<div>
+
+// 								<div
+// 									class="mid hl-orange"
+// 									style="margin-top:10px"
+// 								>
+// 									{ blog.Title }
+// 								</div>
+
+// 							</div>
+
+// 							<a
+// 								href={ templ.URL("/blog/" + blog.Slug) }
+// 								class="btn fill"
+// 							>
+// 								Read Now
+// 							</a>
+
+// 						</div>
+
+//						}
+//						// <div class="rel-hero" data-reveal>
+//						// 	<div>
+//						// 		// <span class="sticker">Latest</span>
+//						// 		<div class="mid hl-orange" style="margin-top:10px">Development Intern</div>
+//						// 		<p class="mono" style="margin-top:5px;color:var(--white)">Innect Technologies Pvt. Ltd.</p>
+//						// 	</div>
+//						// 	// <a class="btn fill" href="#">Stream Now</a>
+//						// 	<p class="mono" style="margin-top:5px;color:var(--white)">June 2025 - October 2025</p>
+//						// </div>
+//						// <div class="rel-hero" data-reveal>
+//						// 	<div>
+//						// 		// <span class="sticker">Latest</span>
+//						// 		<div class="mid hl-orange" style="margin-top:10px">Student Intern</div>
+//						// 		<p class="mono" style="margin-top:5px;color:var(--white)">Indian Institute of Information Technology Guwahati</p>
+//						// 	</div>
+//						// 	// <a class="btn fill" href="#">Stream Now</a>
+//						// 	<p class="mono" style="margin-top:5px;color:var(--white)">June 2024 - July 2024</p>
+//						// </div>
+//						// <div class="rel-list">
+//						// 	<div class="rel-row" data-reveal><span class="t">1000 Gigabytes Of Luv</span><span class="ty">Single</span><span class="yr">2025</span></div>
+//						// 	<div class="rel-row" data-reveal><span class="t">Crash My Heart</span><span class="ty">Single</span><span class="yr">2025</span></div>
+//						// 	<div class="rel-row" data-reveal><span class="t">Stardust.exe</span><span class="ty">EP</span><span class="yr">2024</span></div>
+//						// 	<div class="rel-row" data-reveal><span class="t">Bubblegum Hyperdrive</span><span class="ty">Single</span><span class="yr">2024</span></div>
+//						// 	<div class="rel-row" data-reveal><span class="t">First Upload</span><span class="ty">Demo</span><span class="yr">2023</span></div>
+//						// </div>
+//					</div>
+//				</div>
+//			</section>
+//		}
+//	}
 var _ = templruntime.GeneratedTemplate

@@ -87,10 +87,11 @@ func (app *application) routes() http.Handler {
 	router.HandlerFunc(http.MethodGet, "/experience", app.experience)
 	router.HandlerFunc(http.MethodGet, "/projects", app.projects)
 	router.HandlerFunc(http.MethodGet, "/blog", app.blog)
+	router.HandlerFunc(http.MethodGet, "/blog/:slug", app.blogPost)
 	// router.HandlerFunc(http.MethodGet, "/misc", app.misc)
-	router.HandlerFunc(http.MethodGet, "/tour", app.tour)
+	// router.HandlerFunc(http.MethodGet, "/tour", app.tour)
 
-	standard := alice.New(app.recoverPanic, app.logRequest, secureHeaders)
+	standard := alice.New(app.recoverPanic, app.logRequest, secureHeaders, app.setData)
 
 	return standard.Then(router)
 }

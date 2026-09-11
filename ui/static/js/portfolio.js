@@ -22,7 +22,7 @@
         "/about",
         "/experience",
         "/projects",
-        "/tour",
+        // "/tour",
         "/blog",
         "/contact",
         

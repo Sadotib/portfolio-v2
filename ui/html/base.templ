@@ -3,7 +3,7 @@ package html
 import "portfolio-v2/ui/html/partials"
 // import "portfolio-v2/ui/html/pages"
 
-templ Base() {
+templ Base(day string) {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -47,7 +47,7 @@ templ Base() {
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 			<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=VT323&display=swap" rel="stylesheet"/>
 			<script src="/static/js/portfolio.js" defer></script>
-			<script src="/static/js/htmx.min.js" defer></script>
+			// <script src="/static/js/htmx.min.js" defer></script>
 		</head>
 		<body>
 			// <!-- Global Header -->
@@ -79,7 +79,7 @@ templ Base() {
 			</main>
 			
 			
-			@partials.Footer()
+			@partials.Footer(day)
 			@partials.Popup()
 			
 		</body>

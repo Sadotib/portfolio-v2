@@ -2,17 +2,17 @@ package pages
 
 import "portfolio-v2/ui/html"
 
-templ Contact() {
-	@html.Base() {
-		<!-- ============ SLIDE 8 : CONTACT ============ -->
-		<section class="slide s-ink" data-slide="7">
+templ Contact(day string) {
+	@html.Base(day) {
+		<!-- ============ SLIDE 6 : CONTACT ============ -->
+		<section class="slide s-ink" data-slide="5">
 			<div class="inner scrollable">
 				<div class="wrap">
-					<span class="kicker hl-orange" data-reveal>08 / Contact</span>
-					<h2 class="big hl-lime" data-reveal style="margin:6px 0 16px">Booking &amp;<br/>Contact</h2>
+					// <span class="kicker hl-orange" data-reveal>08 / Contact</span>
+					<h2 class="big hl-lime" data-reveal style="margin:6px 0 16px">Contact</h2>
 					<div class="contact-grid">
-						<div class="cc" data-reveal><div class="k">Management</div><div class="v">Maya Reyes<br/><a href="mailto:mgmt@hyprluv.fm">mgmt@hyprluv.fm</a></div></div>
-						<div class="cc" data-reveal><div class="k">Booking (Worldwide)</div><div class="v">Loudhaus Agency<br/><a href="mailto:book@hyprluv.fm">book@hyprluv.fm</a></div></div>
+						<div class="cc" data-reveal><div class="k">Email</div><div class="v"><a href="mailto:bitopan21mbb@gmail.com">bitopan21mbb@gmail.com</a></div></div>
+						<div class="cc" data-reveal><div class="k">Github</div><div class="v"><a href="https://github.com/Sadotib" target="_blank">Sadotib</a></div></div>
 						<div class="cc" data-reveal><div class="k">Label</div><div class="v">Volt Records</div></div>
 						<div class="cc" data-reveal><div class="k">Press</div><div class="v"><a href="mailto:press@hyprluv.fm">press@hyprluv.fm</a></div></div>
 					</div>

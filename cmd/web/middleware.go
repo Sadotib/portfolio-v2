@@ -43,3 +43,10 @@ func (app *application) logRequest(next http.Handler) http.Handler {
 
 	})
 }
+
+func (app *application) setData(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		app.setDay()
+		next.ServeHTTP(w, r)
+	})
+}
