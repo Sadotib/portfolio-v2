@@ -755,10 +755,10 @@ img {
 }
 
 .quote {
-    border: 3px solid var(--bone);
+    border: 3px solid var(--ink);
     padding: clamp(13px, 2vw, 22px);
     position: relative;
-    background: var(--ink);
+    background: var(--lime);
 }
 
 /* Arrow / link icon */
@@ -766,7 +766,7 @@ img {
     font-family: var(--font-display);
     font-size: 27px;
     line-height: 1;
-    color: var(--lime);
+    color: var(--ink);
     /* border: var(--bone) 2px solid; */
     position: absolute;
     top: clamp(13px, 2vw, 22px);
@@ -788,7 +788,7 @@ img {
     padding-right: 55px;
 
     margin: 4px 0 9px;
-    color: var(--white);
+    color: var(--ink);
 }
 
 .quote .src {
@@ -801,7 +801,7 @@ img {
 
 .quote:nth-child(2),
 .quote:nth-child(3) {
-    background: var(--ink);
+    background: var(--lime);
 }
 
 /* SLIDE 6 TOUR */
@@ -1039,7 +1039,7 @@ img {
 .cc .v {
     font-family: var(--font-body);
     font-size: clamp(20px, 2.3vw, 28px);
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     line-height: 1.05;
     margin-top: 4px
 }
