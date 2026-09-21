@@ -57,7 +57,7 @@ func (app *application) routes() http.Handler {
 
 	router.RedirectTrailingSlash = true
 	router.NotFound = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		app.notFound(w, r, pages.NotFound())
+		app.notFound(w, r, pages.NotFound(app.day))
 	})
 	router.MethodNotAllowed = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		app.clientError(w, http.StatusMethodNotAllowed)

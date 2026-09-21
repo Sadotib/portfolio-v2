@@ -77,7 +77,7 @@ func (app *application) blogPost(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		if os.IsNotExist(err) {
-			app.notFound(w, r, pages.NotFound())
+			app.notFound(w, r, pages.NotFound(app.day))
 			return
 		}
 		app.serverError(w, err)
