@@ -796,7 +796,7 @@ img {
     font-size: 17px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--white);
 }
 
 .quote:nth-child(2),
