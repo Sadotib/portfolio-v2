@@ -88,6 +88,8 @@ func (app *application) routes() http.Handler {
 	router.HandlerFunc(http.MethodGet, "/projects", app.projects)
 	router.HandlerFunc(http.MethodGet, "/blog", app.blog)
 	router.HandlerFunc(http.MethodGet, "/blog/:slug", app.blogPost)
+	router.HandlerFunc(http.MethodGet, "/resume.pdf", app.resume)
+
 	// router.HandlerFunc(http.MethodGet, "/misc", app.misc)
 	// router.HandlerFunc(http.MethodGet, "/tour", app.tour)
 

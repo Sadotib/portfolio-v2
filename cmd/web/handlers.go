@@ -1,9 +1,12 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
+	"io/fs"
 	"net/http"
 	"os"
+	"portfolio-v2/ui"
 	"portfolio-v2/ui/html/pages"
 	"time"
 
@@ -88,6 +91,37 @@ func (app *application) blogPost(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		app.serverError(w, err)
 	}
+}
+
+func (app *application) resume(w http.ResponseWriter, r *http.Request) {
+	// Read the PDF from the embedded filesystem.
+	data, err := fs.ReadFile(ui.Files, "static/files/resume.pdf")
+	if err != nil {
+		app.serverError(w, err)
+		return
+	}
+
+	// Set the content type.
+	w.Header().Set("Content-Type", "application/pdf")
+
+	// // Force download.
+	// w.Header().Set(
+	// 	"Content-Disposition",
+	// 	`attachment; filename="Bitopan_Das_Resume.pdf"`, //for download
+	//	`inline; filename="Bitopan_Das_Resume.pdf"`, //for display in browser
+	// )
+
+	// Send the PDF.
+	http.ServeContent(
+		w,
+		r,
+		"Bitopan_Das_Resume.pdf",
+		// No need to provide a meaningful modification time here.
+		// The content is already loaded into memory.
+		// Use a zero time value.
+		time.Time{},
+		bytes.NewReader(data),
+	)
 }
 
 // func (app *application) misc(w http.ResponseWriter, r *http.Request) {
